@@ -11,10 +11,10 @@ from flask_login import (
 )
 from flask_dance.contrib.github import github
 
-from apps import db, login_manager
+from apps import login_manager
 from apps.authentication import blueprint
 from apps.authentication.forms import LoginForm, CreateAccountForm
-from apps.authentication.models import Users
+from apps.authentication.models import df, Users
 
 from apps.authentication.util import verify_pass
 
@@ -81,16 +81,16 @@ def register():
         email = request.form['email']
 
         # Check usename exists
-        user = Users.query.filter_by(username=username).first()
-        if user:
+        user = df.loc[df['username'] == username]
+        if not user.empty:
             return render_template('accounts/register.html',
                                    msg='Username already registered',
                                    success=False,
                                    form=create_account_form)
 
         # Check email exists
-        user = Users.query.filter_by(email=email).first()
-        if user:
+        user = df.loc[df['email'] == email]
+        if not user.empty:
             return render_template('accounts/register.html',
                                    msg='Email already registered',
                                    success=False,
@@ -98,8 +98,6 @@ def register():
 
         # else we can create the user
         user = Users(**request.form)
-        db.session.add(user)
-        db.session.commit()
 
         # Delete user from session
         logout_user()

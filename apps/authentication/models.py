@@ -4,24 +4,21 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_login import UserMixin
+import pandas as pd
 
 from sqlalchemy.orm import relationship
 from flask_dance.consumer.storage.sqla import OAuthConsumerMixin
 
-from apps import db, login_manager
+from apps import login_manager
 
 from apps.authentication.util import hash_pass
 
-class Users(db.Model, UserMixin):
+users = [{'id': 1, 'username': "don", "email": "muralidharb@gmail.com",
+          "password": "xxx" , "oauth_github": "asfafasd"}]
 
-    __tablename__ = 'users'
+df = pd.DataFrame(users)
 
-    id            = db.Column(db.Integer, primary_key=True)
-    username      = db.Column(db.String(64), unique=True)
-    email         = db.Column(db.String(64), unique=True)
-    password      = db.Column(db.LargeBinary)
-
-    oauth_github  = db.Column(db.String(100), nullable=True)
+class Users():
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
@@ -40,50 +37,62 @@ class Users(db.Model, UserMixin):
     def __repr__(self):
         return str(self.username)
 
+    def get_id(self):
+        return self.id       
+
     @classmethod
     def find_by_email(cls, email: str) -> "Users":
-        return cls.query.filter_by(email=email).first()
+        found = df.loc[df['email'] == email]
+        if found.empty:
+            return None
+        kwargs = found.iloc[0].to_dict()
+        return Users(**kwargs)
 
     @classmethod
     def find_by_username(cls, username: str) -> "Users":
-        return cls.query.filter_by(username=username).first()
+        found = df.loc[df['username'] == username]
+        if found.empty:
+            return None
+        kwargs = found.iloc[0].to_dict()
+        return Users(**kwargs)
     
     @classmethod
     def find_by_id(cls, _id: int) -> "Users":
-        return cls.query.filter_by(id=_id).first()
+        found = df.loc[df['id'] == id]
+        if found.empty:
+            return None
+        kwargs = found.iloc[0].to_dict()
+        return Users(**kwargs)
    
     def save(self) -> None:
-        try:
-            db.session.add(self)
-            db.session.commit()
-          
-        except SQLAlchemyError as e:
-            db.session.rollback()
-            db.session.close()
-            error = str(e.__dict__['orig'])
-            raise InvalidUsage(error, 422)
+        df.to_csv("users.csv")
     
     def delete_from_db(self) -> None:
-        try:
-            db.session.delete(self)
-            db.session.commit()
-        except SQLAlchemyError as e:
-            db.session.rollback()
-            db.session.close()
-            error = str(e.__dict__['orig'])
-            raise InvalidUsage(error, 422)
+        # Drop the row
         return
+
+    def is_active(self) -> bool:
+        return True
+
+    def is_authenticated(self) -> bool:
+        return True
 
 @login_manager.user_loader
 def user_loader(id):
-    return Users.query.filter_by(id=id).first()
+    user = df.loc[df['id'] == id]
+    if user.empty:
+        return None
+    kwargs = user.iloc[0].to_dict()
+    return Users(**kwargs)
 
 @login_manager.request_loader
 def request_loader(request):
     username = request.form.get('username')
-    user = Users.query.filter_by(username=username).first()
-    return user if user else None
+    user = df.loc[df['username'] == username]
+    if user.empty:
+        return None
+    kwargs = user.iloc[0].to_dict()
+    return Users(**kwargs)
 
-class OAuth(OAuthConsumerMixin, db.Model):
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="cascade"), nullable=False)
-    user = db.relationship(Users)
+class OAuth():
+    pass

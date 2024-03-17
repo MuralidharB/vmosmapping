@@ -1,0 +1,22 @@
+Guest OS,RHEL 7 host,RHEL 8 host,RHEL 9 host
+Red Hat Enterprise Linux 5,Supported,Not supported,Not supported
+Red Hat Enterprise Linux 6,Supported,Supported,Not supported
+Red Hat Enterprise Linux 7,Supported,Supported,Supported
+Red Hat Enterprise Linux 8,Not supported,Supported,Supported
+Red Hat Enterprise Linux 9,Not supported,Not supported,Supported
+SUSE Linux Enterprise Server 11 SP4 and later [1],Supported On RHEL 7.7 and later,Not supported,Not supported
+SUSE Linux Enterprise Server 12,Supported,Supported,Supported
+SUSE Linux Enterprise Server 15,Supported,Supported,Supported
+Windows 8,Supported,Not supported,Not supported
+Windows 8.1,Supported,Not supported,Not supported
+Windows 10,Supported,Supported,Supported
+Windows 11,Not supported,Supported,Supported
+Windows Server 2008,Supported,Not supported,Not supported
+Windows Server 2008 R2,Supported,Not supported,Not supported
+Windows Server 2012,Supported,Not supported,Not supported
+Windows Server 2012 R2,Supported,Not supported,Not supported
+Windows Server 2016,Supported,Supported,Supported
+Windows Server 2019,Supported,Supported,Supported
+Windows Server 2022,Not supported,Supported    Supported
+Debian [2],Technology Preview in RHEL 7.4 and later,Technology Preview,Technology Preview
+Ubuntu [2],Technology Preview in RHEL 7.4 and later,Technology Preview,Technology Preview

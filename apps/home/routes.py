@@ -4,10 +4,14 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from apps.home import blueprint
-from flask import render_template, request
+from flask import render_template, request, jsonify
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
+import pandas as pd
+
+from apps.vmware_inventory import discover_vcenter
+from apps.osclient import get_openstack_tenants
 
 @blueprint.route('/index')
 @login_required
@@ -52,3 +56,26 @@ def get_segment(request):
 
     except:
         return None
+
+@blueprint.route('/reload_vcenter', methods=['POST'])
+def reload_vcenter():
+    try:
+        discover_vcenter()
+        df = pd.read_csv("vmflavors.csv")
+        payload = jsonify({'vms': int(df.Name.count()),
+                           'memory': int(df.Memory.sum()),
+                           'storage': int(df.RootDiskSize.sum()),
+                           'vcpus': int(df.CPUs.sum())})
+        return payload
+    except Exception as ex:
+        return render_template('home/page-500.html'), 500
+
+@blueprint.route('/reload_openstack', methods=['POST'])
+def reload_openstack():
+    try:
+        os_payload = get_openstack_tenants()    
+        return jsonify({'domains': len(os_payload['domains']),
+                        'regions': len(os_payload['regions']),
+                        'projects': sum([len(d['projects']) for k, d in os_payload['domains'].items()])})
+    except Exception as ex:
+        return render_template('home/page-500.html'), 500
