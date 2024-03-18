@@ -34,8 +34,8 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Potential Flavors</h5>
-                                            <span class="d-block m-t-5">You can edit, delete flavors from the list </span>
+                                            <h5>Existing VMs Composition</h5>
+                                            <span class="d-block m-t-5">All VMs from vCenter and their composition</span>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -45,7 +45,6 @@
                                                             <th>#</th>
                                                             <th>Name</th>
                                                             <th>Guest</th>
-                                                            <th>Annotation</th>
                                                             <th>vCPUs</th>
                                                             <th>Memory (GB)</th>
                                                             <th>Root Disk Size (GB)</th>
@@ -57,10 +56,51 @@
                                                             <th scope="row">{{ loop.index }}</th>
                                                             <td>{{ flavor['Name'] }}</td>
                                                             <td>{{ flavor['Guest'] }}</td>
-                                                            <td>{{ flavor['Annotation'] }}</td>
-                                                            <td>{{ flavor['vCPUs'] }}</td>
+                                                            <td>{{ flavor['CPUs'] }}</td>
                                                             <td>{{ flavor['Memory'] }}</td>
                                                             <td>{{ flavor['RootDiskSize'] }}</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- [ stiped-table ] end -->
+                            </div>
+                            <div class="row">
+                                <!-- [ stiped-table ] start -->
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5> Potential Flavors to Create on OpenStack</h5>
+                                            <span class="d-block m-t-5">You can edit, delete flavors from the list </span>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Flavor Name</th>
+                                                            <th>Description</th>
+                                                            <th>vCPUs</th>
+                                                            <th>Memory (GB)</th>
+                                                            <th>Root Disk Size (GB)</th>
+                                                            <th>Public</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for flavor in potential_flavors %}  
+                                                        <tr>
+                                                            <th scope="row">{{ loop.index }}</th>
+                                                            <td>{{ flavor['name'] }}</td>
+                                                            <td>{{ flavor['description'] }}</td>
+                                                            <td>{{ flavor['vcpus'] }}</td>
+                                                            <td>{{ flavor['ram'] }}</td>
+                                                            <td>{{ flavor['disk'] }}</td>
+                                                            <td>{{ flavor['is_public'] }}</td>
                                                         </tr>
                                                         {% endfor %}
                                                     </tbody>
