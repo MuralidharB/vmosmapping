@@ -29,8 +29,8 @@
                                                     <h5 class="m-0">vCenter Details</h5>
                                                 </div>
                                             </div>
-                                            <h6 class="text-muted mt-4 mb-0">HOST: vcenter7-1.infra.trilio.io</h6>
-                                            <h6 class="text-muted mt-4 mb-0">Admin: administrator@infra.trilio.io</h6>
+                                            <h6 class="text-muted mt-4 mb-0">HOST: {{ vc_host }}</h6>
+                                            <h6 class="text-muted mt-4 mb-0">Admin: {{ vc_admin }}</h6>
                                             <i class="fab fa-clone text-c-blue f-50"></i>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                                     <i class="feather icon-zap f-30 text-c-green"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="vms" class="f-w-300">235</h3>
+                                                    <h3 id="vms" class="f-w-300">{{ vms }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL VITUAL MACHINES</span>
                                                 </div>
                                             </div>
@@ -52,7 +52,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="vcpus" class="f-w-300">2600</h3>
+                                                    <h3 id="vcpus" class="f-w-300">{{ vcpus }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL vCPUS</span>
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="memory" class="f-w-300">7600</h3>
+                                                    <h3 id="memory" class="f-w-300">{{ memory }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL MEMORY (GB)</span>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="storage" class="f-w-300">1002600</h3>
+                                                    <h3 id="storage" class="f-w-300">{{ storage }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL STORAGE (GB)</span>
                                                 </div>
                                             </div>
@@ -92,9 +92,9 @@
                                                     <h5 class="m-0">OpenStack Details</h5>
                                                 </div>
                                             </div>
-                                            <h6 class="text-muted mt-4 mb-0">URL: https://overcloudtraindev2.trilio.local:13000</h6>
-                                            <h6 class="text-muted mt-4 mb-0">Admin: admin</h6>
-                                            <h6 class="text-muted mt-4 mb-0">Domain: Default</h6>
+                                            <h6 class="text-muted mt-4 mb-0">URL: {{ os_url }}</h6>
+                                            <h6 class="text-muted mt-4 mb-0">Admin: {{ os_admin }}</h6>
+                                            <h6 class="text-muted mt-4 mb-0">Domain: {{ os_domain }}</h6>
                                             <i class="fab fa-cloud text-c-red f-50"></i>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
                                                     <i class="feather icon-zap f-30 text-c-green"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="projects" class="f-w-300">10</h3>
+                                                    <h3 id="projects" class="f-w-300">{{ projects }} </h3>
                                                     <span class="d-block text-uppercase">TOTAL PROJECTS</span>
                                                 </div>
                                             </div>
@@ -116,7 +116,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="domains" class="f-w-300">26</h3>
+                                                    <h3 id="domains" class="f-w-300">{{ domains }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL DOMAINS</span>
                                                 </div>
                                             </div>
@@ -127,7 +127,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 id="regions" class="f-w-300">26</h3>
+                                                    <h3 id="regions" class="f-w-300">{{ regions }}</h3>
                                                     <span class="d-block text-uppercase">TOTAL REGIONS</span>
                                                 </div>
                                             </div>

@@ -13,11 +13,32 @@ import pandas as pd
 from apps.vmware_inventory import discover_vcenter
 from apps.osclient import get_openstack_tenants
 
+from oslo_config import cfg
+
+CONF = cfg.CONF
+
+
 @blueprint.route('/index')
 @login_required
 def index():
 
-    return render_template('home/index.html', segment='index')
+    df = pd.read_csv("vmflavors.csv")
+    payload = {'vms': int(df.Name.count()),
+               'memory': int(df.Memory.sum()),
+               'storage': int(df.RootDiskSize.sum()),
+               'vcpus': int(df.CPUs.sum())}
+    os_payload = get_openstack_tenants()    
+    os_payload = {'domains': len(os_payload['domains']),
+                  'regions': len(os_payload['regions']),
+                  'projects': sum([len(d['projects']) for k, d in os_payload['domains'].items()])}
+    payload.update(os_payload)
+    payload['vc_host'] = CONF.vcenter.host
+    payload['vc_admin'] = CONF.vcenter.admin
+
+    payload['os_url'] = CONF.openstack.keystone_url
+    payload['os_admin'] = CONF.openstack.admin_user
+    payload['os_domain'] = CONF.openstack.admin_domain
+    return render_template('home/index.html', segment='index', **payload)
 
 
 @blueprint.route('/<template>')

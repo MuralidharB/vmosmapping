@@ -43,30 +43,26 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>First Name</th>
-                                                            <th>Last Name</th>
-                                                            <th>Username</th>
+                                                            <th>Name</th>
+                                                            <th>Guest</th>
+                                                            <th>Annotation</th>
+                                                            <th>vCPUs</th>
+                                                            <th>Memory (GB)</th>
+                                                            <th>Root Disk Size (GB)</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        {% for flavor in flavors %}  
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
+                                                            <th scope="row">{{ loop.index }}</th>
+                                                            <td>{{ flavor['Name'] }}</td>
+                                                            <td>{{ flavor['Guest'] }}</td>
+                                                            <td>{{ flavor['Annotation'] }}</td>
+                                                            <td>{{ flavor['vCPUs'] }}</td>
+                                                            <td>{{ flavor['Memory'] }}</td>
+                                                            <td>{{ flavor['RootDiskSize'] }}</td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                        </tr>
+                                                        {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
