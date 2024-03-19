@@ -40,6 +40,22 @@
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
                                                 <table id="network" class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Network Name</th>
+                                                            <th>VM Name</th>
+                                                            <th>Instance UUID</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Network Name</th>
+                                                            <th>VM Name</th>
+                                                            <th>Instance UUID</th>
+                                                        </tr>
+                                                    </tfoot>
                                                 </table>
                                             </div>
                                         </div>
@@ -77,6 +93,10 @@ let editor = new DataTable.Editor( {
 
 let table = new DataTable('#network', {
     ajax: base_url + '/networks/json',
+    order: [['Network Name', 'asc']],
+    rowGroup: {
+       dataSrc: 'Network Name',
+    },
     columns: [
         { data: 'DT_RowId'},
         { data: 'Network Name' },

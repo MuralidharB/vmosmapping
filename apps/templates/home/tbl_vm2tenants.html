@@ -39,18 +39,15 @@
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table id="vm2tenants" class="table table-striped">
+                                                <table id="vm2tenants" class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
                                                             <th>VM Path</th>
                                                             <th>Name</th>
                                                             <th>Guest</th>
-                                                            <th>Instance UUID</th>
-                                                            <th>Annotation</th>
-                                                            <th>State</th>
                                                             <th>IP</th>
-                                                            <th>Question</th>
+                                                            <th>Tenant</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -59,11 +56,8 @@
                                                             <th>VM Path</th>
                                                             <th>Name</th>
                                                             <th>Guest</th>
-                                                            <th>Instance UUID</th>
-                                                            <th>Annotation</th>
-                                                            <th>State</th>
                                                             <th>IP</th>
-                                                            <th>Question</th>
+                                                            <th>Tenant</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -96,36 +90,41 @@ let vm2tenant_editor = new DataTable.Editor( {
     idSrc:  'seqno',
     fields: [
         { label: "#", name: 'seqno'},
-        { label: 'VM Path',  name: 'VM Path'  },
-        { label: 'Name', name: 'Name' },
-        { label: 'Guest',  name: 'Guest'  },
-        { label: 'Instance UUID',  name: 'Instance UUID'  },
-        { label: 'Annotation',  name: 'Annotation'  },
-        { label: 'State',  name: 'State'  },
-        { label: 'IP',  name: 'IP'  },
-        { label: 'Question',  name: 'Question'  },
+        { label: 'VM Path',  name: 'VM Path', multiEditable: false },
+        { label: 'Name', name: 'Name', multiEditable: false },
+        { label: 'Guest',  name: 'Guest', multiEditable: false  },
+        { label: 'IP',  name: 'IP', multiEditable: false  },
+        { label: 'Tenant',  name: 'Tenant', type: 'select', options: ['d1/t1', 'd2/t2', 'd3/t3']  },
     ]
 } );
 
 let vm2tenant_table = new DataTable('#vm2tenants', {
+    order: [['VM Path', 'asc']],
+    rowGroup: {
+       dataSrc: 'VM Path',
+    },
     ajax: base_url + '/vm2tenants/payload',
     columns: [
         { data: 'seqno'},
         { data: 'VM Path' },
         { data: 'Name' },
         { data: 'Guest' },
-        { data: 'Instance UUID' },
-        { data: 'Annotation' },
-        { data: 'State' },
         { data: 'IP' },
-        { data: 'Question' },
+        { data: 'Tenant' },
+        {
+            "orderable": false,
+            "data": null,
+            "defaultContent": '',
+            "render": function () {
+                 return '<i class="fa edit fa-edit"></i>';
+            },
+            width:"15px"
+        },
     ],
     layout: {
         topStart: {
             buttons: [
-                { extend: 'create', editor: vm2tenant_editor },
-                { extend: 'edit',   editor: vm2tenant_editor },
-                { extend: 'remove', editor: vm2tenant_editor }
+                { extend: 'edit',   editor: vm2tenant_editor, text: 'Assign Tenant' },
             ]
         }  
     },

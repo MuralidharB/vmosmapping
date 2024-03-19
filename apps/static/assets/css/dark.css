@@ -6,7 +6,12 @@
 
 body.dark {
   background-color: #082032;
-  color: white !important; }
+  color: white !important; 
+}
+.DTE_Body_Content {
+  background-color: #082032;
+  color: #37474f !important; 
+}
   body.dark .pcoded-navbar, body.dark .navbar-brand {
     background-color: #2C394B; }
   body.dark .icon, body.dark a, body.dark span, body.dark p, body.dark .feather,

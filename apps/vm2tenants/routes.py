@@ -18,6 +18,7 @@ def get_vm2tenants():
 def get_vm2tenants_payload():
     vms = pd.read_csv("vminventory.csv")
     vms['seqno'] = vms.index
+    vms['Tenant'] = "Domain/Tenant"
     vms = vms.fillna(value="")
     vms = vms.to_dict('records')
     return jsonify({"data": vms})
