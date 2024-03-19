@@ -1,6 +1,6 @@
 import pandas as pd
 
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, jsonify
 from flask_login import login_required
 from apps.flavors import blueprint
 
@@ -11,6 +11,22 @@ CONF = cfg.CONF
 @blueprint.route('/', methods=['GET'])
 @login_required
 def get_flavors():
+    return render_template("home/tbl_flavors.html", segment="flavors")
+
+
+@blueprint.route('/vms_composition', methods=['GET'])
+@login_required
+def get_vms_composition():
+    flavors = pd.read_csv("vmflavors.csv")
+    flavors['seqno'] = flavors.index
+    flavors = flavors.fillna(value="")
+    flavors = flavors.to_dict('records')
+    return jsonify({"data": flavors})
+
+
+@blueprint.route('/recommended', methods=['GET'])
+@login_required
+def get_recommended_flavors():
     flavors = pd.read_csv("vmflavors.csv")
 
     potential_flavors = []
@@ -40,6 +56,4 @@ def get_flavors():
                      'vcpus': c, 'ram': m, 'swap': 0, 'is_public': True,
                      'disk': d})
                 flavorid += 1
-    return render_template('home/tbl_flavors.html', segment='index', 
-                           flavors=flavors.to_dict('records'),
-                           potential_flavors=potential_flavors)
+    return jsonify({"data": potential_flavors})

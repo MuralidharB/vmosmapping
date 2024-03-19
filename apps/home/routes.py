@@ -10,7 +10,7 @@ from jinja2 import TemplateNotFound
 
 import pandas as pd
 
-from apps.vmware_inventory import discover_vcenter
+from apps.vmware_inventory import discover_vcenter_vms, discover_vcenter_networks
 from apps.osclient import get_openstack_tenants
 
 from oslo_config import cfg
@@ -81,7 +81,8 @@ def get_segment(request):
 @blueprint.route('/reload_vcenter', methods=['POST'])
 def reload_vcenter():
     try:
-        discover_vcenter()
+        discover_vcenter_vms()
+        discover_vcenter_networks()
         df = pd.read_csv("vmflavors.csv")
         payload = jsonify({'vms': int(df.Name.count()),
                            'memory': int(df.Memory.sum()),
@@ -89,6 +90,7 @@ def reload_vcenter():
                            'vcpus': int(df.CPUs.sum())})
         return payload
     except Exception as ex:
+        print(ex)
         return render_template('home/page-500.html'), 500
 
 @blueprint.route('/reload_openstack', methods=['POST'])

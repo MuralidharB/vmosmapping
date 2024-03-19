@@ -39,29 +39,31 @@
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-striped">
+                                                <table id="vms_composition" class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Name</th>
                                                             <th>Guest</th>
+                                                            <th>Instance UUID</th>
+                                                            <th>Annotation</th>
                                                             <th>vCPUs</th>
                                                             <th>Memory (GB)</th>
                                                             <th>Root Disk Size (GB)</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        {% for flavor in flavors %}  
+                                                    <tfoot>
                                                         <tr>
-                                                            <th scope="row">{{ loop.index }}</th>
-                                                            <td>{{ flavor['Name'] }}</td>
-                                                            <td>{{ flavor['Guest'] }}</td>
-                                                            <td>{{ flavor['CPUs'] }}</td>
-                                                            <td>{{ flavor['Memory'] }}</td>
-                                                            <td>{{ flavor['RootDiskSize'] }}</td>
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Guest</th>
+                                                            <th>Instance UUID</th>
+                                                            <th>Annotation</th>
+                                                            <th>vCPUs</th>
+                                                            <th>Memory (GB)</th>
+                                                            <th>Root Disk Size (GB)</th>
                                                         </tr>
-                                                        {% endfor %}
-                                                    </tbody>
+                                                    </tfoot>
                                                 </table>
                                             </div>
                                         </div>
@@ -79,7 +81,7 @@
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-striped">
+                                                <table id="recommended_flavors" class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -91,19 +93,17 @@
                                                             <th>Public</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        {% for flavor in potential_flavors %}  
+                                                    <tfoot>
                                                         <tr>
-                                                            <th scope="row">{{ loop.index }}</th>
-                                                            <td>{{ flavor['name'] }}</td>
-                                                            <td>{{ flavor['description'] }}</td>
-                                                            <td>{{ flavor['vcpus'] }}</td>
-                                                            <td>{{ flavor['ram'] }}</td>
-                                                            <td>{{ flavor['disk'] }}</td>
-                                                            <td>{{ flavor['is_public'] }}</td>
+                                                            <th>#</th>
+                                                            <th>Flavor Name</th>
+                                                            <th>Description</th>
+                                                            <th>vCPUs</th>
+                                                            <th>Memory (GB)</th>
+                                                            <th>Root Disk Size (GB)</th>
+                                                            <th>Public</th>
                                                         </tr>
-                                                        {% endfor %}
-                                                    </tbody>
+                                                    </tfoot>
                                                 </table>
                                             </div>
                                         </div>
@@ -125,4 +125,86 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script>
+var base_url = window.location.origin;
+
+let compeditor = new DataTable.Editor( {
+    ajax: base_url + '/flavors/vms_composition',
+    table: '#vms_composition',
+    idSrc:  'seqno',
+    fields: [
+        { label: "#", name: 'seqno'},
+        { label: 'Name', name: 'Name' },
+        { label: 'Guest',  name: 'Guest'  },
+        { label: 'Instance UUID',  name: 'Instance UUID'  },
+        { label: 'Annotation',  name: 'Annotation'  },
+        { label: 'Memory',  name: 'Memory'  },
+        { label: 'vCPUs',  name: 'CPUs'  },
+        { label: 'Root Disk',  name: 'RootDiskSize'  },
+    ]
+} );
+
+let comptable = new DataTable('#vms_composition', {
+    ajax: base_url + '/flavors/vms_composition',
+    columns: [
+        { data: 'seqno'},
+        { data: 'Name' },
+        { data: 'Guest' },
+        { data: 'Instance UUID' },
+        { data: 'Annotation' },
+        { data: 'Memory' },
+        { data: 'CPUs' },
+        { data: 'RootDiskSize' },
+    ],
+    layout: {
+        topStart: {
+            buttons: [
+                { extend: 'create', editor: compeditor },
+                { extend: 'edit',   editor: compeditor },
+                { extend: 'remove', editor: compeditor }
+            ]
+        }  
+    },
+    select: true
+} );
+
+let flveditor = new DataTable.Editor( {
+    ajax: base_url + '/flavors/recommended',
+    table: '#recommended_flavors',
+    idSrc: 'flavorid',
+    fields: [
+        { label: "#", name: 'flavorid'},
+        { label: 'Name', name: 'name' },
+        { label: 'Description',  name: 'description'  },
+        { label: 'vCPUs',  name: 'vcpus'  },
+        { label: 'RAM',  name: 'ram'  },
+        { label: 'Root Disk',  name: 'disk'  },
+        { label: 'Public',  name: 'is_public'  },
+    ]
+} );
+
+let flvtable = new DataTable('#recommended_flavors', {
+    ajax: base_url + '/flavors/recommended',
+    columns: [
+        { data: 'flavorid'},
+        { data: 'name' },
+        { data: 'description' },
+        { data: 'vcpus' },
+        { data: 'ram' },
+        { data: 'disk' },
+        { data: 'is_public' },
+    ],
+    layout: {
+        topStart: {
+            buttons: [
+                { extend: 'create', editor: flveditor },
+                { extend: 'edit',   editor: flveditor },
+                { extend: 'remove', editor: flveditor }
+            ]
+        }  
+    },
+    select: true
+} );
+</script>
+{% endblock javascripts %}

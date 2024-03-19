@@ -111,7 +111,49 @@ def vm_info_for_flavor_creation(virtual_machine):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow(vmdetails)
 
-def discover_vcenter():
+
+def discover_vcenter_networks():
+    sys.argv = sys.argv[0:1]
+    sys.argv += ["-s", CONF.vcenter.host, "-u", CONF.vcenter.admin, "-p", CONF.vcenter.password]
+
+    if not CONF.vcenter.ssl_verify:
+       sys.argv.append("-nossl")
+
+    parser = cli.Parser()
+    parser.add_custom_argument('-f', '--find', required=False,
+                               action='store', help='String to match VM names')
+    args = parser.get_args()
+    si = service_instance.connect(args)
+    content = si.RetrieveContent()
+
+    with open('vmnetworks.csv', 'w', newline='') as csvfile:
+        fieldnames = [ "Network Name", "VM Name", "VM Instance UUID"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+
+    network_view = content.viewManager.CreateContainerView(
+        content.rootFolder,
+        [vim.Network],
+        True)
+    networks = list(network_view.view)
+    network_view.Destroy()
+
+    with open('vmnetworks.csv', 'a+', newline='') as csvfile:
+        network_list = []
+        for n in networks:
+            for v in n.vm:
+                network_details = {'Network Name': n.name,
+                                   'VM Name': v.summary.config.name,
+                                   'VM Instance UUID': v.summary.config.instanceUuid}
+                network_list.append(network_details)
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writerow(network_details)
+
+    return network_list
+
+
+def discover_vcenter_vms():
     """
     Simple command-line program for listing the virtual machines on a system.
     """
@@ -142,6 +184,8 @@ def discover_vcenter():
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writeheader()
+
+
         content = si.RetrieveContent()
 
         container = content.rootFolder  # starting point to look into
@@ -167,4 +211,5 @@ def discover_vcenter():
 
 # Start program
 if __name__ == "__main__":
-    discover_vcenter()
+    discover_vcenter_vms()
+    discover_vcenter_networks()
