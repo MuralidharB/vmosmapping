@@ -11,7 +11,7 @@ CONF = cfg.CONF
 @blueprint.route('/', methods=['GET'])
 @login_required
 def get_vm2tenants():
-    return render_template('home/tbl_vm2tenants.html', segment='index')
+    return render_template('home/tbl_vm2tenants.html', segment='vm2tenants')
 
 @blueprint.route('/payload', methods=['GET'])
 @login_required
