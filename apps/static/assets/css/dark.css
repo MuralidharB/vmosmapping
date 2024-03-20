@@ -8,6 +8,7 @@ body.dark {
   background-color: #082032;
   color: white !important; 
 }
+
 .DTE_Body_Content {
   background-color: #082032;
   color: #37474f !important; 
@@ -94,5 +95,9 @@ body.dark {
     background-color: #2C394B; }
   body.dark .pcoded-header .main-search.open .input-group .search-close {
     background-color: transparent; }
+
+  body.dark .modal-content {
+    background-color: #2C394B;
+    color: white !important; }
 
 /*# sourceMappingURL=dark.css.map */
