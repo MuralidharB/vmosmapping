@@ -94,7 +94,12 @@ let vm2tenant_editor = new DataTable.Editor( {
         { label: 'Name', name: 'Name', multiEditable: false },
         { label: 'Guest',  name: 'Guest', multiEditable: false  },
         { label: 'IP',  name: 'IP', multiEditable: false  },
-        { label: 'Tenant',  name: 'Tenant', type: 'select', options: ['d1/t1', 'd2/t2', 'd3/t3']  },
+        { label: 'Tenant',  name: 'Tenant', type: 'select',
+          options: [
+             {% for tenant in tenants %}
+                 "{{ tenant['domain_name'] }}/{{ tenant['name'] }}",
+             {% endfor %}
+          ]  },
     ]
 } );
 
@@ -111,15 +116,6 @@ let vm2tenant_table = new DataTable('#vm2tenants', {
         { data: 'Guest' },
         { data: 'IP' },
         { data: 'Tenant' },
-        {
-            "orderable": false,
-            "data": null,
-            "defaultContent": '',
-            "render": function () {
-                 return '<i class="fa edit fa-edit"></i>';
-            },
-            width:"15px"
-        },
     ],
     layout: {
         topStart: {

@@ -37,27 +37,83 @@
                                     <div class="row">
                                         <div class="col-md-2 col-sm-12">
                                             <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                                <li><a class="nav-link text-left active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Tenant 1</a></li>
-                                                <li><a class="nav-link text-left" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Tenant 2</a></li>
-                                                <li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Tenant 3</a></li>
-                                                <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Tenant 4</a></li>
+                                                {% for tenant in tenants %}
+                                                    {% if loop.index == 0 %}
+                                                       <li><a class="nav-link text-left active" id="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}-tab"
+                                                              data-toggle="pill" href="#v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}" role="tab" 
+                                                              aria-controls="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}" aria-selected="true">{{ tenant['domain_name'] }} / {{ tenant['name'] }} </a></li>
+                                                    {% else %}
+                                                       <li><a class="nav-link text-left" id="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}-tab"
+                                                              data-toggle="pill" href="#v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}" role="tab" 
+                                                              aria-controls="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}" aria-selected="true">{{ tenant['domain_name'] }} / {{ tenant['name'] }} </a></li>
+                                                    {% endif %}
+                                                {% endfor %}
                                             </ul>
                                         </div>
                                         <div class="col-md-10 col-sm-12">
                                             <div class="tab-content" id="v-pills-tabContent">
-                                                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                                    <p class="mb-0">Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non laborum enim et cillum eu deserunt excepteur ea incididunt minim occaecat.</p>
+                                                {% for tenant in tenants %}
+                                                    {% if loop.index == 0 %}
+                                                          <div class="tab-pane fade show active" id="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}"
+                                                               role="tabpanel" aria-labelledby="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}-tab">
+                                                    {% else %}
+                                                          <div class="tab-pane fade show" id="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}"
+                                                               role="tabpanel" aria-labelledby="v-pills-{{ tenant['domain_name'] }}-{{ tenant['name'] }}-tab">
+                                                    {% endif %}
+                                                    <div class="row">
+                                                        <!-- [ stiped-table ] start -->
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>VMware Tenant VMs</h5>
+                                                                </div>
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="table-responsive">
+                                                                        <table id="tenant_vms" class="table table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>#</th>
+                                                                                    <th>VM Path</th>
+                                                                                    <th>Name</th>
+                                                                                    <th>Guest</th>
+                                                                                    <th>Migration Plan</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- [ stiped-table ] end -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <!-- [ stiped-table ] start -->
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5> Migration Plans</h5>
+                                                                </div>
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="table-responsive">
+                                                                        <table id="migration_plans" class="table table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>#</th>
+                                                                                    <th>Name</th>
+                                                                                    <th>Description</th>
+                                                                                    <th>Number of VMs</th>
+                                                                                    <th>Type</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- [ stiped-table ] end -->
+                                                    </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                    <p class="mb-0">Culpa dolor voluptate do laboris laboris irure reprehenderit id incididunt duis pariatur mollit aute magna pariatur consectetur. Eu veniam duis non ut dolor deserunt commodo et minim in quis laboris ipsum velit id veniam. Quis ut consectetur adipisicing officia excepteur non sit. Ut et elit aliquip labore Lorem enim eu. Ullamco mollit occaecat dolore ipsum id officia mollit qui esse anim eiusmod do sint minim consectetur qui.</p>
-                                                </div>
-                                                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                    <p class="mb-0">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
-                                                </div>
-                                                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                    <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum duis aliqua do. Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo eiusmod.
-                                                    </p>
-                                                </div>
+                                                {% endfor %}
                                             </div>
                                         </div>
                                     </div>
@@ -77,4 +133,56 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script>
+var base_url = window.location.origin;
+let tenant_vms_editor = new DataTable.Editor( {
+    ajax: base_url + '/migration_plans/tenant_vms?tenant_name={{ tenants[0]["name"] }}&domain_name={{ tenants[0]["domain_name"] }}',
+    table: '#tenant_vms',
+    idSrc:  'seqno',
+    fields: [
+        { label: "#", name: 'seqno'},
+        { label: 'VM Path',  name: 'VM Path', multiEditable: false },
+        { label: 'Name', name: 'Name', multiEditable: false },
+        { label: 'Guest',  name: 'Guest', multiEditable: false  },
+        { label: 'Migration Plan',  name: 'IP', multiEditable: false  },
+    ]
+} );
+
+let tenant_vms_table = new DataTable('#tenant_vms', {
+    order: [['VM Path', 'asc']],
+    ajax: base_url + '/migration_plans/tenant_vms?tenant_name={{ tenants[0]["name"] }}&domain_name={{ tenants[0]["domain_name"] }}',
+    columns: [
+        { data: 'seqno'},
+        { data: 'VM Path' },
+        { data: 'Name' },
+        { data: 'Guest' },
+        { data: 'IP' },
+    ],
+    layout: {
+        topStart: {
+            buttons: [
+                { extend: 'selected', 'text': 'Create Migration Plan' },
+                { extend: 'selectNone', 'text': 'DeSelectAll' }]
+        }
+    },
+    select: {
+        style: 'multi'
+    }
+} );
+
+tenant_vms_table.on('user-select', function (e, dt, type, cell, originalEvent) {
+    row = cell[0][0].row
+    
+    if (this.childNodes[3].childNodes[row].childNodes[4].textContent != "") {
+        e.preventDefault();
+    }
+});
+
+$('button[data-toggle="pill"]').on('show.bs.tab', function (event) {
+  event.target // newly activated tab
+  event.relatedTarget // previous active tab
+  console.log(event)
+})
+</script>
+{% endblock javascripts %}
