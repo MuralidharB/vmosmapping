@@ -24,7 +24,7 @@ def get_vms_composition():
     return jsonify({"data": flavors})
 
 
-@blueprint.route('/recommended', methods=['GET'])
+@blueprint.route('/recommended', methods=['GET', 'POST'])
 @login_required
 def get_recommended_flavors():
     flavors = pd.read_csv("vmflavors.csv")
@@ -57,3 +57,10 @@ def get_recommended_flavors():
                      'disk': d})
                 flavorid += 1
     return jsonify({"data": potential_flavors})
+
+
+@blueprint.route('/create', methods=['POST'])
+@login_required
+def create_flavors():
+
+    return jsonify({})

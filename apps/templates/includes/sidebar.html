@@ -3,7 +3,7 @@
     <div class="navbar-wrapper">
         <div class="navbar-brand header-logo">
             <a href="/" class="b-brand">
-                <img src="static/assets/images/trilio_logo.png" alt="Trilio logo" width="75%" height="75%">
+                <img src="/static/assets/images/trilio_logo.png" alt="Trilio logo" width="75%" height="75%">
             </a>
         </div>
         <div class="navbar-content scroll-div">
@@ -33,6 +33,11 @@
                     class="nav-item {% if 'networks' in segment %} active {% endif %}">
                     <a href="/networks" class="nav-link "><span class="pcoded-micon"><i
                             class="feather icon-server"></i></span><span class="pcoded-mtext">Networks</span></a>
+                </li>
+                <li data-username="Table bootstrap datatable footable" 
+                    class="nav-item {% if 'migraiton_plans' in segment %} active {% endif %}">
+                    <a href="/migration_plans" class="nav-link "><span class="pcoded-micon"><i
+                            class="feather icon-server"></i></span><span class="pcoded-mtext">Migration Plans</span></a>
                 </li>
             </ul>
         </div>

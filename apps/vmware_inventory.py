@@ -69,6 +69,7 @@ def vm_info_for_tenant_mapping(virtual_machine):
           "IP": ip_address,
           "Question": question,
           "VM Path": folder_path,
+          "Tenant": "Domain/Project",
     }
 
     with open('vminventory.csv', 'a+', newline='') as csvfile:
@@ -173,7 +174,7 @@ def discover_vcenter_vms():
     try:
         with open('vminventory.csv', 'w', newline='') as csvfile:
             fieldnames = ["Name", "Template", "Datastore Path", "Guest", "Instance UUID", "Bios UUID",
-                          "Annotation", "State", "VMware-tools", "IP", "Question", "VM Path"]
+                          "Annotation", "State", "VMware-tools", "IP", "Question", "VM Path", "Tenant"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writeheader()
