@@ -1,0 +1,39 @@
+,Unnamed: 0.1,Unnamed: 0,flavorid,name,description,vcpus,ram,swap,is_public,disk,already_exists,modified
+0,0,0,38221831-b91e-4184-9bda-b36abbdd427a,flavor 0,,2,8,,True,100,True,False
+1,1,1,1,flavor 1,Flavor  1,2,8,0.0,True,200,False,False
+2,2,2,2,flavor 2,,2,8,,True,700,True,False
+3,3,3,3,Flavor 333,,4,8,,True,100,True,False
+4,4,4,4,flavor 4,,4,8,,True,200,True,False
+5,5,5,5,flavor 5,,4,8,,True,300,True,False
+6,6,6,6,flavor 6,,4,8,,True,500,True,False
+7,7,7,7,flavor 7,,4,8,,True,600,True,False
+8,8,8,8,flavor 8,,4,8,,True,900,True,False
+9,9,9,9,flavor 9,,4,16,,True,100,True,False
+10,10,10,10,flavor 10,,4,16,,True,200,True,False
+11,11,11,11,flavor 11,,4,16,,True,400,True,False
+12,12,12,12,flavor 12asfda,,4,32,,True,200,True,True
+13,13,13,13,flavor 13,,8,8,,True,100,True,False
+14,14,14,14,flavor 14,,8,8,,True,200,True,False
+15,15,15,15,flavor 15asdf,,8,8,,true,300,true,True
+16,16,16,16,flavor 16,,8,16,,True,100,True,False
+17,17,17,17,flavor 17,,8,16,,True,200,True,False
+18,18,18,18,flavor 18,,8,16,,True,300,True,False
+19,19,19,19,flavor 19,,8,16,,True,400,True,False
+20,20,20,20,flavor 20,,8,16,,True,500,True,False
+21,21,21,21,flavor 21,,8,16,,True,700,True,False
+22,22,22,22,flavor 22,,8,32,,True,100,True,False
+23,23,23,23,flavor 23,,8,32,,True,600,True,False
+24,24,24,24,flavor 24,,16,8,,True,200,True,False
+25,25,25,25,flavor 25,,16,16,,True,100,True,False
+26,26,26,26,flavor 26,,16,32,,True,100,True,False
+27,27,27,27,flavor 27,,16,32,,True,200,True,False
+28,28,28,28,flavor 28,,16,32,,True,700,True,False
+29,29,29,29,flavor 29,,16,64,,True,600,True,False
+30,30,30,30,flavor 30,,16,64,,True,1000,True,False
+31,31,31,31,flavor 31,,32,32,,True,100,True,False
+32,32,32,32,flavor 32,,32,32,,True,200,True,False
+33,33,33,8053e3e7-1b8b-45fc-9d36-be1c89e893c6,centos-frm,,2,2048,,True,14,True,False
+34,34,34,a483e589-f191-42be-9890-2d7a5e97ba78,cirros,,1,64,,True,1,True,False
+35,35,35,ad5fd29f-e991-4207-b712-81c7a54a6761,centos8stream-frm,,2,2048,,True,14,True,False
+36,36,36,b51e503f-22b4-46d1-86f7-6e51206087b1,ubuntu-frm,,2,2048,,True,14,True,False
+37,37,37,fff5c049-1228-4300-8ceb-e1b6b1410582,1GB-64MB,,1,64,,True,1,True,False

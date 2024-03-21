@@ -26,17 +26,16 @@ def get_vm2tenants():
 @login_required
 def get_vm2tenants_payload():
     if request.method == 'POST':
-        vms = pd.read_csv("vminventory.csv")
+        vms = pd.read_csv("data/vminventory.csv")
         tenants = vms.Tenant
         for key, value in request.form.items():
             if 'Tenant' in key:
                 m = re.match(r"data\[(\d+)\]\[Tenant\]", key)
-                print(m.groups())
                 idx = int(m.groups()[0])
                 tenants[idx] = value            
         vms['Tenant'] = tenants
-        vms.to_csv("vminventory.csv") 
-    vms = pd.read_csv("vminventory.csv")
+        vms.to_csv("data/vminventory.csv") 
+    vms = pd.read_csv("data/vminventory.csv")
     vms['seqno'] = vms.index
     vms = vms.fillna(value="")
     vms = vms.to_dict('records')

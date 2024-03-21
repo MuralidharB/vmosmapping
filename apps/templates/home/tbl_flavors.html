@@ -13,18 +13,6 @@
 
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] start -->
-                    <div class="page-header">
-                        <div class="page-block">
-                            <div class="row align-items-center">
-                                <div class="col-md-12">
-                                    <div class="page-header-title">
-                                        <h5 class="m-b-10">Possible Flavors</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
@@ -34,7 +22,7 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Existing VMs Composition</h5>
+                                            <h5>vCenter VMs</h5>
                                             <span class="d-block m-t-5">All VMs from vCenter and their composition</span>
                                         </div>
                                         <div class="card-block table-border-style">
@@ -87,6 +75,7 @@
                                                             <th>Memory (GB)</th>
                                                             <th>Root Disk Size (GB)</th>
                                                             <th>Public</th>
+                                                            <th>Exists</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -98,6 +87,7 @@
                                                             <th>Memory (GB)</th>
                                                             <th>Root Disk Size (GB)</th>
                                                             <th>Public</th>
+                                                            <th>Exists</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -149,15 +139,6 @@ let comptable = new DataTable('#vms_composition', {
         { data: 'CPUs' },
         { data: 'RootDiskSize' },
     ],
-    layout: {
-        topStart: {
-            buttons: [
-                { extend: 'create', editor: compeditor },
-                { extend: 'edit',   editor: compeditor },
-                { extend: 'remove', editor: compeditor }
-            ]
-        }  
-    },
     select: true
 } );
 
@@ -173,6 +154,7 @@ let flveditor = new DataTable.Editor( {
         { label: 'RAM',  name: 'ram'  },
         { label: 'Root Disk',  name: 'disk'  },
         { label: 'Public',  name: 'is_public'  },
+        { label: 'Exists',  name: 'already_exists'  },
     ]
 } );
 
@@ -186,6 +168,7 @@ let flvtable = new DataTable('#recommended_flavors', {
         { data: 'ram' },
         { data: 'disk' },
         { data: 'is_public' },
+        { data: 'already_exists'  },
     ],
     layout: {
         topStart: {

@@ -28,6 +28,7 @@ from keystoneauth1.identity import v3
 from keystoneauth1 import session
 from keystoneclient.v3 import client as keystone_client
 from novaclient import client as nova_client
+from novaclient import api_versions
 
 from oslo_config import cfg
 
@@ -94,12 +95,17 @@ def get_user_map(keystone):
     return regions, domainmap, usermap
 
 
-def get_flavor_map(nova_client):
+def get_flavor_map(nclient=None):
     """Get a map of flavours"""
-    flavors = defaultdict()
 
-    for idx, flavor in enumerate(nova_client.flavors.list()):
-        flavors[flavor.id] = flavor.human_id
+    if nclient is None:
+        sess = get_session()
+        nclient = nova_client.Client(version=2, session=sess)
+
+    flavors = {}
+
+    for idx, flavor in enumerate(nclient.flavors.list()):
+        flavors[flavor.id] = flavor
 
     return flavors
 
@@ -159,6 +165,36 @@ def user_summary(servers, users):
             log.debug('    |-> (age: %3id) %-20s', age.days, server)
     log.info('-' * 80)
     log.info('')
+
+
+def create_flavors(flavors):
+    # Get a keystone session.
+    sess = get_session()
+
+    # Create a OpenStack nova client.
+    # https://goo.gl/ryuyzF
+    novaclient = nova_client.Client(version=2, session=sess)
+    existing_flavors = get_flavor_map(novaclient)
+    supports_description = api_versions.APIVersion('2.55')
+    for idx, fl in enumerate(flavors):
+        if not fl['modified']:
+            continue
+        import pdb;pdb.set_trace()
+        if fl['flavorid'] in existing_flavors:
+             novaclient.flavors.delete(fl['flavorid'])
+        if novaclient.flavors.api_version < supports_description:
+            novaclient.flavors.create(
+                fl['name'], fl['ram'],
+                fl['vcpus'], fl['disk'],
+                flavorid=fl['flavorid'], is_public=fl['is_public'])
+        else:
+            novaclient.flavors.create(
+                fl['name'], fl['ram'],
+                fl['vcpus'], fl['disk'],
+                flavorid=fl['flavorid'], is_public=fl['is_public'],
+                description=fl['description'])
+
+    return flavors
 
 
 def get_openstack_tenants():

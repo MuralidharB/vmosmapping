@@ -22,7 +22,7 @@ CONF = cfg.CONF
 @login_required
 def index():
 
-    df = pd.read_csv("vmflavors.csv")
+    df = pd.read_csv("data/vmflavors.csv")
     payload = {'vms': int(df.Name.count()),
                'memory': int(df.Memory.sum()),
                'storage': int(df.RootDiskSize.sum()),
@@ -83,7 +83,7 @@ def reload_vcenter():
     try:
         discover_vcenter_vms()
         discover_vcenter_networks()
-        df = pd.read_csv("vmflavors.csv")
+        df = pd.read_csv("data/vmflavors.csv")
         payload = jsonify({'vms': int(df.Name.count()),
                            'memory': int(df.Memory.sum()),
                            'storage': int(df.RootDiskSize.sum()),

@@ -11,7 +11,7 @@ def get_networks():
 @blueprint.route('/json', methods=['GET'])
 @login_required
 def get_networks_json():
-    networks = pd.read_csv("vmnetworks.csv")
+    networks = pd.read_csv("data/vmnetworks.csv")
     networks['DT_RowId'] = networks.index
     networks = networks.to_dict('records')
     return jsonify({"data": networks})
