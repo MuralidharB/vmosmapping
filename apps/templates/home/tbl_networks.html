@@ -36,13 +36,13 @@
                    <input type="text" class="form-control" id="subnet-mask" placeholder="subnet mask here">
                  </div>
                  <div class="form-group">
-                   <label for="subnet-mask">Subnet Mask</label>
+                   <label for="subnet-mask">Tenant</label>
                    <select id="Tenant" class="form-control">
                      {% for tenant in tenants %}
-                         {% if loop.index == 0 %}
-                            <option selected>{{ tenant }}</option>
+                         {% if loop.index == 1 %}
+                            <option selected>{{ tenant['domain_name'] }} / {{ tenant['name'] }}</option>
                          {% else %}
-                            <option >{{ tenant }}</option>
+                            <option >{{ tenant['domain_name']  }} / {{ tenant['name'] }}</option>
                          {% endif %}
                      {% endfor %}
                    </select>
@@ -104,7 +104,7 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button id="create-network" type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create a Tenant Network</button>
+                            <button id="create-network-button" type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create a Tenant Network</button>
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -150,8 +150,11 @@ let table = new DataTable('#network', {
     select: true
 } );
 
-$('#create-network').on('click', function(event) {
-  event.preventDefault(); // To prevent following the link (optional)
+const create_networks = document.getElementById('create-network-button');
+
+create_networks.addEventListener('click', function (event) {
+  event.preventDefault();
+
   jQuery.noConflict();
   $("#create-network").modal('show')
 });
