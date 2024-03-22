@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Potential OpenStack Flavors {% endblock %} 
+{% block title %} OpenStack Glance Images {% endblock %} 
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -13,7 +13,6 @@
 
             <div class="pcoded-content">
                 <div class="pcoded-inner-content">
-                    <!-- [ breadcrumb ] end -->
                     <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
@@ -22,26 +21,26 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Potential Tenant Networks</h5>
-                                            <span class="d-block m-t-5">You can edit, delete tenant networks from the list </span>
+                                            <h5>Glance Images</h5>
+                                            <span class="d-block m-t-5">You can edit, delete images required for migration</span>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table id="network" class="table table-striped">
+                                                <table id="images" class="table table-striped">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Network Name</th>
-                                                            <th>VM Name</th>
-                                                            <th>Instance UUID</th>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Flags</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Network Name</th>
-                                                            <th>VM Name</th>
-                                                            <th>Instance UUID</th>
+                                                            <th>Name</th>
+                                                            <th>Description</th>
+                                                            <th>Flags</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -51,7 +50,7 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create Networks</button>
+                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create Images</button>
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -69,8 +68,8 @@
 var base_url = window.location.origin;
 
 let editor = new DataTable.Editor( {
-    ajax: base_url + '/networks/json',
-    table: '#network',
+    ajax: base_url + '/images/json',
+    table: '#images',
     fields: [
         { label: "#", name: 'DT_RowId'},
         { label: 'Network Name', name: 'Network Name' },
@@ -79,8 +78,8 @@ let editor = new DataTable.Editor( {
     ]
 } );
 
-let table = new DataTable('#network', {
-    ajax: base_url + '/networks/json',
+let table = new DataTable('#images', {
+    ajax: base_url + '/images/json',
     order: [['Network Name', 'asc']],
     rowGroup: {
        dataSrc: 'Network Name',

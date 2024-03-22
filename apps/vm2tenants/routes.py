@@ -19,6 +19,7 @@ def get_vm2tenants():
     for did, dval in os_payload['domains'].items():
         for pid, pval in dval['projects'].items():
             tenants.append({'name': pval, "domain_name": dval['name']})
+
     return render_template('home/tbl_vm2tenants.html', segment='vm2tenants', tenants=tenants)
 
 
@@ -39,4 +40,22 @@ def get_vm2tenants_payload():
     vms['seqno'] = vms.index
     vms = vms.fillna(value="")
     vms = vms.to_dict('records')
+    support_matrix = pd.read_csv("data/supportmatrix.csv").to_dict('records')
+    for vm in vms:
+        found = False
+        for s in support_matrix:
+            if s['Guest OS'] in vm['Guest']:
+                found = True
+                break
+        if not found:
+            vm['supported'] = 'Error'
+        else:
+            if "%s host" % CONF.migration.hypervisor in s.keys():
+                if s["%s host" % CONF.migration.hypervisor].lower() == "supported":
+                    vm['supported'] = "Success"
+                else:
+                    vm['supported'] = "Error"
+            else:
+                vm['supported'] = "Warning"
+                
     return jsonify({"data": vms})

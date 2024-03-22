@@ -8,11 +8,11 @@
 {% block content %}
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="migration-plan" tabindex="-1" aria-labelledby="migration-plan-label" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Migration Plan</h5>
+            <h5 class="modal-title" id="migrationPlanLabel">Migration Plan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -20,16 +20,16 @@
           <div class="modal-body">
                <form>
                  <div class="form-group">
-                   <label for="formGroupExampleInput">Name</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                   <label for="migration-plan-name">Name</label>
+                   <input type="text" class="form-control" id="migration-plan-name" placeholder="Migration Plan Name here">
                  </div>
                  <div class="form-group">
-                   <label for="formGroupExampleInput2">Description</label>
-                   <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                   <label for="migration-plan-description">Description</label>
+                   <input type="text" class="form-control" id="migration-plan-description" placeholder="Description here">
                  </div>
                  <div class="form-group">
-                   <label for="inputState">Type</label>
-                   <select id="inputState" class="form-control">
+                   <label for="migration-plan-type">Type</label>
+                   <select id="migration-plan-type" class="form-control">
                      <option selected>Cold</option>
                      <option>Warm</option>
                      <option>Dry Run</option>
@@ -187,7 +187,7 @@ let tenant_vms_table = new DataTable('#tenant_vms', {
                 { extend: 'selected', 'text': 'Create Migration Plan', action: function ( e, dt, node, config ) {
                      e.preventDefault();
                      jQuery.noConflict();
-                     $('#exampleModal').modal('show') 
+                     $('#migration-plan').modal('show') 
             } },
                 { extend: 'selectNone', 'text': 'DeSelectAll' }]
         }

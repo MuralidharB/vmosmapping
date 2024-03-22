@@ -53,6 +53,11 @@ cfg.CONF.register_group(openstack)
 # Register your options within the config group
 cfg.CONF.register_opts(opts, group=openstack)
 
+migration = cfg.OptGroup('migration')
+opts = [cfg.StrOpt('hypervisor'),]
+cfg.CONF.register_group(migration)
+cfg.CONF.register_opts(opts, group=migration)
+
 try:
 
     # Load the configuration using the default values

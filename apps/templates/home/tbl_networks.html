@@ -7,6 +7,55 @@
 
 {% block content %}
 
+    <!-- Modal -->
+    <div class="modal fade" id="create-network" tabindex="-1" aria-labelledby="create-network-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="create-network-label">Create Tenant Network</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+               <form>
+                 <div class="form-group">
+                   <label for="network-name">Name</label>
+                   <input type="text" class="form-control" id="network-name" placeholder="Network name here">
+                 </div>
+                 <div class="form-group">
+                   <label for="network-description">Description</label>
+                   <input type="text" class="form-control" id="network-description" placeholder="Network description here">
+                 </div>
+                 <div class="form-group">
+                   <label for="subnet-name">Subnet Name</label>
+                   <input type="text" class="form-control" id="subnet-name" placeholder="subnet name here">
+                 </div>
+                 <div class="form-group">
+                   <label for="subnet-mask">Subnet Mask</label>
+                   <input type="text" class="form-control" id="subnet-mask" placeholder="subnet mask here">
+                 </div>
+                 <div class="form-group">
+                   <label for="subnet-mask">Subnet Mask</label>
+                   <select id="Tenant" class="form-control">
+                     {% for tenant in tenants %}
+                         {% if loop.index == 0 %}
+                            <option selected>{{ tenant }}</option>
+                         {% else %}
+                            <option >{{ tenant }}</option>
+                         {% endif %}
+                     {% endfor %}
+                   </select>
+                 </div>
+               </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- [ Main Content ] start -->
     <section class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -33,7 +82,9 @@
                                                             <th>#</th>
                                                             <th>Network Name</th>
                                                             <th>VM Name</th>
-                                                            <th>Instance UUID</th>
+                                                            <th>Tenant</th>
+                                                            <th>Network</th>
+                                                            <th>Subnet</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -41,7 +92,9 @@
                                                             <th>#</th>
                                                             <th>Network Name</th>
                                                             <th>VM Name</th>
-                                                            <th>Instance UUID</th>
+                                                            <th>Tenant</th>
+                                                            <th>Network</th>
+                                                            <th>Subnet</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -51,7 +104,7 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create Networks</button>
+                            <button id="create-network" type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create a Tenant Network</button>
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -75,7 +128,7 @@ let editor = new DataTable.Editor( {
         { label: "#", name: 'DT_RowId'},
         { label: 'Network Name', name: 'Network Name' },
         { label: 'VM Name',  name: 'VM Name'  },
-        { label: 'VM Instance UUID',  name: 'VM Instance UUID'  },
+        { label: 'Tenant',  name: 'Tenant'  },
     ]
 } );
 
@@ -89,10 +142,18 @@ let table = new DataTable('#network', {
         { data: 'DT_RowId'},
         { data: 'Network Name' },
         { data: 'VM Name' },
-        { data: 'VM Instance UUID' },
+        { data: 'Tenant' },
+        { data: 'Network' },
+        { data: 'Subnet' },
         // etc
     ],
     select: true
 } );
+
+$('#create-network').on('click', function(event) {
+  event.preventDefault(); // To prevent following the link (optional)
+  jQuery.noConflict();
+  $("#create-network").modal('show')
+});
 </script>
 {% endblock javascripts %}

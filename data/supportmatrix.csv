@@ -1,9 +1,14 @@
 Guest OS,RHEL 7 host,RHEL 8 host,RHEL 9 host
 Red Hat Enterprise Linux 5,Supported,Not supported,Not supported
+CentOS 5,Supported,Not supported,Not supported
 Red Hat Enterprise Linux 6,Supported,Supported,Not supported
+CentOS 6,Supported,Supported,Not supported
 Red Hat Enterprise Linux 7,Supported,Supported,Supported
+CentOS 7,Supported,Supported,Supported
 Red Hat Enterprise Linux 8,Not supported,Supported,Supported
+CentOS 8,Not supported,Supported,Supported
 Red Hat Enterprise Linux 9,Not supported,Not supported,Supported
+CentOS 9,Not supported,Not supported,Supported
 SUSE Linux Enterprise Server 11 SP4 and later [1],Supported On RHEL 7.7 and later,Not supported,Not supported
 SUSE Linux Enterprise Server 12,Supported,Supported,Supported
 SUSE Linux Enterprise Server 15,Supported,Supported,Supported
