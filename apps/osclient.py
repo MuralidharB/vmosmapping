@@ -179,7 +179,6 @@ def create_flavors(flavors):
     for idx, fl in enumerate(flavors):
         if not fl['modified']:
             continue
-        import pdb;pdb.set_trace()
         if fl['flavorid'] in existing_flavors:
              novaclient.flavors.delete(fl['flavorid'])
         if novaclient.flavors.api_version < supports_description:
