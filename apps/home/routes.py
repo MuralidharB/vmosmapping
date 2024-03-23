@@ -10,7 +10,10 @@ from jinja2 import TemplateNotFound
 
 import pandas as pd
 
-from apps.vmware_inventory import discover_vcenter_vms, discover_vcenter_networks
+from apps.vmware_inventory import (
+    discover_vcenter_vms,
+    discover_vcenter_networks,
+    discover_vcenter_datastores)
 from apps.osclient import get_openstack_tenants
 
 from oslo_config import cfg
@@ -83,6 +86,7 @@ def reload_vcenter():
     try:
         discover_vcenter_vms()
         discover_vcenter_networks()
+        discover_vcenter_datastores()
         df = pd.read_csv("data/vmflavors.csv")
         payload = jsonify({'vms': int(df.Name.count()),
                            'memory': int(df.Memory.sum()),

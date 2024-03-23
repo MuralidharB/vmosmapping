@@ -1,0 +1,136 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Map datastore to a volume type{% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <section class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                                <!-- [ stiped-table ] start -->
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>vCenter Datastores</h5>
+                                            <span class="d-block m-t-5">Map each VMware datastore to a OpenStack volume type</span>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table id="datastores" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Name</th>
+                                                            <th>Capacity</th>
+                                                            <th>Free Space</th>
+                                                            <th>Volume Type</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Name</th>
+                                                            <th>Capacity</th>
+                                                            <th>Free Space</th>
+                                                            <th>Volume Type</th>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- [ stiped-table ] end -->
+                            </div>
+                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Save Mappings</button>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+var base_url = window.location.origin;
+let datastores_editor = new DataTable.Editor( {
+    ajax: base_url + '/storage/datastores',
+    table: '#datastores',
+    idSrc:  'seqno',
+    fields: [
+        { label: "", name: 'seqno'},
+        { label: 'Name',  name: 'Name'},
+        { label: 'Capacity', name: 'Capacity'},
+        { label: 'Free Space',  name: 'Free Space'},
+        { label: 'Volume Type',  name: 'Volume Type', type: 'select'},
+    ]
+} );
+
+
+var volumetypes = [
+    {% for vtype in volumetypes %}
+        "{{ vtype['name'] }}",
+    {% endfor %}
+];
+
+let datastores_table = new DataTable('#datastores', {
+    ajax: base_url + '/storage/datastores',
+    columns: [
+        { data: 'seqno'},
+        { data: 'Name' },
+        { data: 'Capacity' },
+        { data: 'Free Space' },
+        { data: 'Volume Type',
+          "render": function(d,t,r){
+              var $select = $('<select class="custom-select"></select>', {
+                        "id": r[1]+"start",
+                        "value": d
+              });
+              $.each(volumetypes, function(k,v){
+                        var $option = $("<option></option>", {
+                            "text": v,
+                            "value": v
+                        });
+                        if(d === v){
+                            $option.attr("selected", "selected")
+                        }
+                        $select.append($option);
+                    });
+              return $select.prop("outerHTML");
+           }
+         },
+    ],
+    select: true,
+    order: [1, 'asc'],
+});
+
+$('#datastores').on('change', 'td select', function () {
+    
+    // Get the cell of the changed select
+    var cell = datastores_table.cell($(this).closest('td'));
+    
+    // Get the changed value
+    var val = $(this).val();
+    
+    // Set the cell data to the new value and draw - run render.
+    cell.data( val ).draw();
+    
+  });
+ 
+</script>
+{% endblock javascripts %}

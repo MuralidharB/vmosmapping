@@ -23,15 +23,19 @@ import os
 import time
 import datetime
 import logging
+import requests
 from collections import defaultdict
 from keystoneauth1.identity import v3
 from keystoneauth1 import session
 from keystoneclient.v3 import client as keystone_client
 from novaclient import client as nova_client
+from cinderclient import client as cinder_client
 from novaclient import api_versions
 
 from oslo_config import cfg
 
+requests.packages.urllib3.disable_warnings(
+    requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 CONF = cfg.CONF
 LOG = logging.getLogger(__name__)
@@ -194,6 +198,22 @@ def create_flavors(flavors):
                 description=fl['description'])
 
     return flavors
+
+
+def get_volume_types():
+    # Get a keystone session.
+    sess = get_session()
+
+    # Create a OpenStack nova client.
+    # https://goo.gl/ryuyzF
+    cinderclient = cinder_client.Client(version=3, session=sess)
+    volumetypes = cinderclient.volume_types.list()
+    types = []
+    for v in volumetypes:
+        types.append({'id': v.id, 'name': v.name,
+                      'is_public': v.is_public,
+                      'description': v.description})
+    return types
 
 
 def get_openstack_tenants():

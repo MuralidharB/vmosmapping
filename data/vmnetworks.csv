@@ -689,6 +689,11 @@ OCP,jeff-ubuntu-1,50122692-98d5-88a3-f495-ceb1fb70dc5f
 OCP,Ubuntu-VM1,5012d9f7-d717-7386-0a45-cf71773eda7a
 OCP,rodolfo-ubuntu-1,50128318-984d-b8a9-e032-ee5f4d3b537d
 OCP,jeff-windows10-1,50126502-92bb-6174-1f27-2f4cfd6d5356
+OCP,jeff-windows-10-2,501240f2-e19a-4a0c-9eb7-06beb44aec5d
+OCP,jeff-windows-server-2016-1,5012b5da-9fbb-a210-32e9-a919035852e1
+OCP,jeff-windows-server-2019-1,50129b02-701b-f71a-e0ab-6c7b2d737c7a
+OCP,jeff-windows-server-2022-1,5012079a-a200-81ae-428b-0ba1a5c09f30
+OCP,jeff-windows-11-1,501208a9-3aa9-2650-f8ca-41e4d7d40f4d
 Internal_network,Demo_Pfsense,52a4246d-b9b1-b2d7-45cc-07c614a8c15e
 External_Network,Demo_Pfsense,52a4246d-b9b1-b2d7-45cc-07c614a8c15e
 External_Network,testing1,501241ca-ab60-1dda-4e2f-a9415197a5fe
