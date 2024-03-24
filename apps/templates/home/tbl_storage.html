@@ -16,6 +16,7 @@
                     <div class="main-body">
                         <div class="page-wrapper">
                             <!-- [ Main Content ] start -->
+                            <form class="needs-validation" novalidate> 
                             <div class="row">
                                 <!-- [ stiped-table ] start -->
                                 <div class="col-xl-12">
@@ -52,7 +53,8 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Save Mappings</button>
+                           <button id="submit" class="btn btn-primary" type="submit">Submit Mappings</button>
+                            </form>
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -81,13 +83,6 @@ let datastores_editor = new DataTable.Editor( {
     ]
 } );
 
-
-var volumetypes = [
-    {% for vtype in volumetypes %}
-        "{{ vtype['name'] }}",
-    {% endfor %}
-];
-
 let datastores_table = new DataTable('#datastores', {
     ajax: base_url + '/storage/datastores',
     columns: [
@@ -95,42 +90,28 @@ let datastores_table = new DataTable('#datastores', {
         { data: 'Name' },
         { data: 'Capacity' },
         { data: 'Free Space' },
-        { data: 'Volume Type',
-          "render": function(d,t,r){
-              var $select = $('<select class="custom-select"></select>', {
-                        "id": r[1]+"start",
-                        "value": d
-              });
-              $.each(volumetypes, function(k,v){
-                        var $option = $("<option></option>", {
-                            "text": v,
-                            "value": v
-                        });
-                        if(d === v){
-                            $option.attr("selected", "selected")
-                        }
-                        $select.append($option);
-                    });
-              return $select.prop("outerHTML");
-           }
-         },
+        { data: "Volume Type", editField: 'Volume Type', },
     ],
+    order: [0, 'asc'],
     select: true,
-    order: [1, 'asc'],
 });
 
-$('#datastores').on('change', 'td select', function () {
-    
-    // Get the cell of the changed select
-    var cell = datastores_table.cell($(this).closest('td'));
-    
-    // Get the changed value
-    var val = $(this).val();
-    
-    // Set the cell data to the new value and draw - run render.
-    cell.data( val ).draw();
-    
-  });
+datastores_table.on('click', 'td:last-child', function () {
+    datastores_editor.inline(this, {
+        onBlur: 'submit'
+    });
+});
  
+$("#submit").on('click', function (e) {
+    e.preventDefault();
+ 
+    var data = datastores_table.$('input, select').serialize();
+ 
+    alert(
+        'The following data would have been submitted to the server: \n\n' +
+            data.substr(0, 120) +
+            '...'
+    );
+});
 </script>
 {% endblock javascripts %}

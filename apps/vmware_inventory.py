@@ -204,10 +204,12 @@ def write_to_csv(ds_obj):
             ds["Over Provisioned"] = "0 GB" 
         ds["Hosts"] = "{}".format(len(ds_obj.host))
         ds["Virtual Machines"] = "{}".format(len(ds_obj.vm))
+        ds["Volume Type"] = "__DEFAULT__"
 
         with open('data/vmdatastores.csv', 'a+', newline='') as csvfile:
             fieldnames = [ "Name", "URL", "Capacity", "Free Space", "Uncommitted", 
-                           "Provisioned", "Over Provisioned", "Hosts", "Virtual Machines"]
+                           "Provisioned", "Over Provisioned", "Hosts",
+                           "Virtual Machines", "Volume Type"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow(ds)
     except Exception as ex:
@@ -232,7 +234,8 @@ def discover_vcenter_datastores():
     content = si.RetrieveContent()
     with open('data/vmdatastores.csv', 'w', newline='') as csvfile:
         fieldnames = [ "Name", "URL", "Capacity", "Free Space", "Uncommitted", 
-                       "Provisioned", "Over Provisioned", "Hosts", "Virtual Machines"]
+                       "Provisioned", "Over Provisioned", "Hosts",
+                       "Virtual Machines", "Volume Type"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()

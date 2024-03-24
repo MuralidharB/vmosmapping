@@ -38,7 +38,7 @@ kubeadm-worker-2,Ubuntu Linux (64-bit),5012d5e2-531f-a11d-4a48-ed1e1db00486,,8,4
 KVM,CentOS 7 (64-bit),527ca8c4-4a70-3a29-cf5c-665515ea1e00,,80,24,1,1,374
 kubeadm2-worker-2,Ubuntu Linux (64-bit),5012736a-fa88-a5f9-d28e-633593c5a4f5,,8,4,1,1,108
 8-CPU-16GB-RAM-Disk1-150GB-Disk2-200GB,CentOS 7 (64-bit),50129456-464a-9f52-2c9d-7a2ecb381e24,,16,8,1,2,350
-Target_NFS,CentOS 7 (64-bit),525774d2-d386-ac67-a2ae-623766320d6c,,8,4,1,2,95
+Target_NFS,CentOS 7 (64-bit),525774d2-d386-ac67-a2ae-623766320d6c,,8,4,1,2,96
 PFsense,FreeBSD Pre-11 versions (64-bit),5238129c-3ca6-79ce-5e15-8d9696118e4a,,16,4,8,1,37
 ceph-admin-node,CentOS 7 (64-bit),50127bd3-4f0c-50df-1912-c72ea062846d,,4,2,1,1,84
 kolla-ansible-compute-1,Ubuntu Linux (64-bit),5012a437-31db-754b-8554-eaa5e90441b7,,16,8,2,2,276
@@ -53,12 +53,12 @@ kubeadm-master,Ubuntu Linux (64-bit),50125b73-42e1-30b2-904d-6749945887c6,,8,4,1
 OCp-client,Red Hat Enterprise Linux 9 (64-bit),50127f25-8378-25b6-510d-8f4396d665b0,,8,8,1,1,22
 dc10-x7l68-worker-0-jcvgn,Red Hat Enterprise Linux 8 (64-bit),2e45e28f-b363-41a5-8e17-05cd53b6e134,dc10-x7l68-worker-0-jcvgn,24,24,2,3,234
 dc10-x7l68-worker-0-85bn7,Red Hat Enterprise Linux 8 (64-bit),893303a1-2035-44b3-ac18-0ee7c52308d9,dc10-x7l68-worker-0-85bn7,24,24,2,3,234
-dc10-x7l68-worker-0-5kz8j,Red Hat Enterprise Linux 8 (64-bit),33f34544-8cd4-426b-a94f-2f9f2ed5416b,dc10-x7l68-worker-0-5kz8j,24,24,2,3,233
+dc10-x7l68-worker-0-5kz8j,Red Hat Enterprise Linux 8 (64-bit),33f34544-8cd4-426b-a94f-2f9f2ed5416b,dc10-x7l68-worker-0-5kz8j,24,24,2,3,234
 dc10-x7l68-master-1,Red Hat Enterprise Linux 8 (64-bit),5012d1a2-9ade-e496-3377-88456beac579,Created By OpenShift Installer,32,24,1,1,232
 dc10-x7l68-rhcos-generated-region-generated-zone,Red Hat Enterprise Linux 8 (64-bit),5012f310-a6f7-1ac1-5f00-f8e604035829,,4,2,1,1,16
 MOSK4,Ubuntu Linux (64-bit),5012b9f8-6456-38db-32fe-a13b6743a15b,,24,16,2,1,319
 MOSK2,Ubuntu Linux (64-bit),5012511c-5082-a646-1fa1-f685512c3826,,24,16,2,2,301
-Ubuntu18_Abhijeet_18.1,Ubuntu Linux (64-bit),50362abc-13b3-edc3-49bf-d1dc6a065ac5,,24,16,2,1,236
+Ubuntu18_Abhijeet_18.1,Ubuntu Linux (64-bit),50362abc-13b3-edc3-49bf-d1dc6a065ac5,,24,16,2,1,237
 dc10-x7l68-master-0,Red Hat Enterprise Linux 8 (64-bit),5012fcb7-b28f-3200-7189-0159e31e0fbc,Created By OpenShift Installer,32,24,1,1,232
 MOSK5,Ubuntu Linux (64-bit),5012a4dd-b35b-9927-baf7-e757c6d495ec,,24,16,2,1,76
 Rocky_Zed_Compute_172.25.11.2,Other Linux (64-bit),50124668-c3fa-67e2-554f-0b2ac634aa19,,32,32,3,1,94
@@ -85,7 +85,7 @@ deb_packing_12.41_mahesh,Ubuntu Linux (64-bit),5243a893-33a2-7a9c-099c-c30815170
 LandingVM-Akash-1.93,Microsoft Windows 8.x (64-bit),5012fd7d-6568-bc20-15c2-ab31e77f070a,,8,8,1,1,60
 Murali_Ubuntu_14.58,Ubuntu Linux (64-bit),50122dac-88c4-a63a-7425-72a51774de8c,,16,8,1,1,47
 Murali_14.50,CentOS 4/5/6/7 (64-bit),5273eb04-3d34-48a6-d364-a32175335a53,,24,16,1,1,1043
-redhatceph_mimic1.75,Red Hat Enterprise Linux 7 (64-bit),523cf573-2529-6fcf-0522-bc9d53b72ba6,,12,12,1,4,3925
+redhatceph_mimic1.75,Red Hat Enterprise Linux 7 (64-bit),523cf573-2529-6fcf-0522-bc9d53b72ba6,,12,12,1,4,3926
 centos-7.9-template-1.28.13-1648183331,CentOS 7 (64-bit),5012e1e4-2c3f-97cc-4b57-5274cb914691,mcc_template_version: 1.28.13,24,8,1,1,0
 Terminal-server-3-1.99,Microsoft Windows 10 (64-bit),501231b3-e679-99dd-4cea-046c9d433d68,,16,8,1,1,152
 RHEL-9-Rajneesh-192.168.15.10,Red Hat Enterprise Linux 8 (64-bit),5012ffd3-0e73-31fd-21b4-71f2168bcfcd,,8,4,1,1,1
@@ -110,7 +110,7 @@ Controller-172.25.1.116,Ubuntu Linux (64-bit),5012a2c6-6d20-16a2-daa1-39cf2474d2
 Centos_Tempest_1.119_restoration testing,CentOS 4/5/6/7 (64-bit),50126299-0462-8f80-fdea-28a1ded03d39,,8,4,1,1,79
 Compute-IPv6-25.72,CentOS 8 (64-bit),5012c576-f599-c4fb-98ef-020a953556a9,,24,16,3,1,57
 RHEL8-Rajneesh-25.80,Red Hat Enterprise Linux 8 (64-bit),5012a9be-fb53-d1fb-24e9-b58606652cea,,16,8,1,1,72
-ASP_Traefik_docker_test_172.25.3.105,Ubuntu Linux (64-bit),501267f5-6a3e-7094-3ac1-c880611dbfd3,,8,8,1,1,35
+ASP_Traefik_docker_test_172.25.3.105,Ubuntu Linux (64-bit),501267f5-6a3e-7094-3ac1-c880611dbfd3,,8,8,1,1,36
 centos8s-ipv6,CentOS 8 (64-bit),5012d02f-6516-ac11-02b1-77c6baa602d5,,24,16,3,1,4
 moskR-Docker,Ubuntu Linux (64-bit),5012ae5c-a372-fbd4-cb76-d38407971f2d,,24,16,2,1,6
 jeff-ubuntu-2,Ubuntu Linux (64-bit),5012d17d-e958-005e-88ef-16720630168f,,8,2,1,1,10
@@ -127,7 +127,7 @@ KollaWallaby-24.22,CentOS 8 (64-bit),50123869-1cd0-3276-0b22-05c601e4933b,,32,24
 Node2,Ubuntu Linux (64-bit),5288c47c-b7a9-f058-1d0e-dd8b0df9301b,,16,20,2,2,66
 Rocky9.2,Other Linux (64-bit),501269db-1e74-6775-81f2-ec32b15b6008,,24,16,3,2,1
 KVMDevNew-24.240,CentOS 7 (64-bit),50123593-95de-9ac6-ad61-0e3bab802bcd,,36,24,3,2,655
-Node5_Zed,Ubuntu Linux (64-bit),501268f8-e035-8a69-368d-83544c064482,,20,16,2,2,86
+Node5_Zed,Ubuntu Linux (64-bit),501268f8-e035-8a69-368d-83544c064482,,20,16,2,2,88
 moskqa-6,Ubuntu Linux (64-bit),501245b4-b156-cb3b-6348-8f5f0e79a07c,,24,16,2,2,82
 temp-prashant-win10-1,Microsoft Windows 10 (64-bit),5012ba68-ffb0-b442-34e5-16587f545377,,8,4,1,1,36
 mosk3-automation,Ubuntu Linux (64-bit),5012dc81-5f6e-4cdc-e525-49fa6d3423ab,,24,16,2,2,228
@@ -138,14 +138,14 @@ mosk4-automation,Ubuntu Linux (64-bit),50125500-2b7f-92d5-fa0b-39bcac9f492b,,24,
 ADP_Windows10,Microsoft Windows 10 (64-bit),5012c216-6aa6-05a5-6e2a-7997bbc1e0aa,,16,8,1,1,69
 temp-prashant-win-10-2,Microsoft Windows 10 (64-bit),501255f5-7abc-9ede-c3c7-94b3b6695ed8,,8,4,1,1,36
 synology,Other 3.x or later Linux (64-bit),52fe1a04-3695-e18e-4d6e-0ce87dae28ef,,12,12,3,4,195
-JUJU_Maas_Zed,Ubuntu Linux (64-bit),501202cf-b046-43da-9f22-d3fb5900cbcc,,8,8,2,1,50
+JUJU_Maas_Zed,Ubuntu Linux (64-bit),501202cf-b046-43da-9f22-d3fb5900cbcc,,8,8,2,1,51
 Node1,Ubuntu Linux (64-bit),527b7f51-5e90-496f-f099-e01ee0a3fdf4,,16,20,2,2,33
 JUJUFOCALMAAS.1.2,Ubuntu Linux (64-bit),52cca0b8-7eaa-f454-deca-6d604aaaa3be,,8,8,1,1,139
-Node4_Zed,Ubuntu Linux (64-bit),5012cec4-be4f-59bb-821e-4321a6d8dfd1,,20,16,2,2,75
+Node4_Zed,Ubuntu Linux (64-bit),5012cec4-be4f-59bb-821e-4321a6d8dfd1,,20,16,2,2,76
 mosk1-automation,Ubuntu Linux (64-bit),50124996-541d-12d6-0032-17138dbdb4e6,,24,16,2,1,114
 moskqa-3,Ubuntu Linux (64-bit),50122e37-573d-9b70-7cbc-ed9c790dc6bd,,24,16,2,2,154
 compute_172.25.11.32,Ubuntu Linux (64-bit),50125976-3f2e-88aa-4ede-72735d2af1f4,,32,24,3,1,232
-Node3_Zed,Ubuntu Linux (64-bit),5012917b-bcd7-35e8-d6d6-fc14af91910a,,20,16,2,2,90
+Node3_Zed,Ubuntu Linux (64-bit),5012917b-bcd7-35e8-d6d6-fc14af91910a,,20,16,2,2,91
 moskqa-4,Ubuntu Linux (64-bit),50123630-8459-66ef-d235-838b9ccc9af5,,24,16,2,2,148
 Node6_Zed,Ubuntu Linux (64-bit),5012464d-cdd9-9f14-85ca-0f7a440cc9fb,,20,16,2,2,0
 moskqa-1,Ubuntu Linux (64-bit),50125e01-d68b-345b-79bd-f175cb8f6ba4,,24,16,2,1,81
@@ -166,7 +166,7 @@ Compute_24.113,CentOS 8 (64-bit),50120315-8f55-6628-43ed-334960b755f1,,24,16,5,2
 Controller_24.112,CentOS 8 (64-bit),50129de1-59fe-65ab-0739-df59678b4d2d,,24,16,5,2,132
 iscsi_24.114,CentOS 8 (64-bit),5012a2f4-d1f4-4f05-b075-ccce11691f20,,8,2,5,2,32
 Kolla_Wallaby_IPv6_Test,CentOS 8 (64-bit),5012ef6f-c3bd-c0af-3aee-f9f55696d3f1,,24,16,3,2,65
-prashant_14.100,Ubuntu Linux (64-bit),5012e21f-6f93-d19b-8274-1ae5a80bb5dd,,16,8,1,1,41
+prashant_14.100,Ubuntu Linux (64-bit),5012e21f-6f93-d19b-8274-1ae5a80bb5dd,,16,8,1,1,42
 Abhijeet_ubuntu20_18.10,Ubuntu Linux (64-bit),52a500f4-4a34-dfbe-9451-a1d4dc63e816,,16,8,1,1,150
 Centos7-Stein,CentOS 7 (64-bit),501279a5-2600-61b4-d171-b964806272f0,,24,16,1,2,12
 Meenu_landing_vm,Microsoft Windows 8 (64-bit),523173db-62e3-e86c-cc3c-845dbc52b7d8,,10,10,3,2,304
@@ -220,7 +220,7 @@ Ekta_automationvm-24.202,CentOS 8 (64-bit),5012cf68-ddf9-7e89-dfb9-f1b438b8fe16,
 Centos8-Tempest3-24.98,CentOS 8 (64-bit),50129f15-0e6b-a912-9d58-ce2bdd516d69,,8,2,3,1,13
 Landing_VM_Niranjan,Microsoft Windows 8 (64-bit),52e46ffe-2278-7f91-f0cf-980dc5d2fc72,,10,8,3,1,121
 Prashant_14.6,CentOS 4/5/6/7 (64-bit),520d00e1-9df8-3667-a3f7-4a02c4578c8f,,32,16,1,4,5
-NODE4,Ubuntu Linux (64-bit),521ffdfb-8145-84b7-a58e-4d54d3487538,,24,24,2,2,151
+NODE4,Ubuntu Linux (64-bit),521ffdfb-8145-84b7-a58e-4d54d3487538,,24,24,2,2,152
 divyaubuntu_10.183,Ubuntu Linux (64-bit),52d0f060-119e-7289-a7ac-ff8e4161ef89,,12,8,1,1,94
 NODE5,Ubuntu Linux (64-bit),52a071eb-d72c-0961-eab6-ba6e6fe92050,,24,24,2,2,184
 prashant_icinga_14.254,CentOS 8 (64-bit),5012f6aa-b677-c481-6037-39740f2e4724,,8,8,1,1,29
@@ -253,7 +253,7 @@ RohitTest,Ubuntu Linux (64-bit),5012b3af-30d9-dc02-8303-fee71f44f8e5,,8,8,1,1,20
 Atul-RHEL-7-BIOS-2-Large-Disk,Red Hat Enterprise Linux 7 (64-bit),501228cb-3da0-5575-674f-c587f9bc84e5,,4,2,1,2,520
 Atul-RHEL-7-BIOS,Red Hat Enterprise Linux 7 (64-bit),5012eca7-fd6f-9e4c-dc11-f449fab6618e,,4,2,1,1,20
 Atul-WindowsServer2016-1,Microsoft Windows Server 2016 (64-bit),5012bb75-7212-0de6-abf3-3c655e03e8e4,,4,4,1,2,60
-controller1,Ubuntu Linux (64-bit),50121070-f800-9259-44c6-94cb0f6f3922,,32,32,3,1,114
+controller1,Ubuntu Linux (64-bit),50121070-f800-9259-44c6-94cb0f6f3922,,32,32,3,1,115
 abcd,CentOS 8 (64-bit),5012e562-aab3-193e-2a87-3babb7220c97,,2,1,1,1,16
 Automation_Ubuntu,Ubuntu Linux (64-bit),50120770-75b9-8e4f-2cfe-2b1735fdfd4f,,4,4,1,1,37
 Dg-Test-2,CentOS 8 (64-bit),5012b264-6163-72cc-1865-7af7fe9ddd88,,4,2,1,1,2
@@ -274,27 +274,27 @@ Atul-SUSE-Linux-Server-11-1,SUSE Linux Enterprise 11 (64-bit),5012651e-02eb-1488
 Automation_Centos8,CentOS 8 (64-bit),501226fe-d58b-7d8f-a2ae-75b6efcbfd16,,4,4,1,1,36
 Ubuntu18t,Ubuntu Linux (64-bit),5012ee46-0796-61c7-c73e-1d9fd7e753d7,,4,4,1,1,263
 Atul-WindowsServer2019,Microsoft Windows Server 2019 (64-bit),50129e10-e709-3194-8b0f-7a3862678b3e,,16,8,1,1,15
-Node-3,Ubuntu Linux (64-bit),5012b711-d1af-9eda-381b-b6e1d0478fc1,,40,24,2,2,176
+Node-3,Ubuntu Linux (64-bit),5012b711-d1af-9eda-381b-b6e1d0478fc1,,40,24,2,2,177
 Node-5,Ubuntu Linux (64-bit),50120b29-d578-7b98-cfb4-fdb5fa0a72bf,,40,24,2,2,176
 jujumass202,Ubuntu Linux (64-bit),501211df-8795-45d6-d316-124bda56a781,,16,8,1,1,54
 NODE-02,Ubuntu Linux (64-bit),5012ed27-c5db-df8f-2932-c6773485ba1b,,20,16,2,2,81
 Node06,Ubuntu Linux (64-bit),5012549e-679c-42e1-239b-26b933258be6,,16,16,2,2,47
 NODE-05,Ubuntu Linux (64-bit),50122279-e9f6-5bc2-ccf9-1a0ce8bb5b56,,20,16,2,2,12
 ubuntu-20.04-template-1.33.5-1664266990,Ubuntu Linux (64-bit),50120231-3522-d00a-ecee-3c0d68b1004f,mcc_template_version: 1.33.5,24,8,1,1,0
-Node04,Ubuntu Linux (64-bit),5012dd58-5d77-01f9-c827-d2e4836f6d64,,20,16,2,2,80
+Node04,Ubuntu Linux (64-bit),5012dd58-5d77-01f9-c827-d2e4836f6d64,,20,16,2,2,81
 Windows10,Microsoft Windows 10 (64-bit),5207ea45-7289-199a-83a5-15720a104e00,,8,4,2,1,23
 Node-1,Ubuntu Linux (64-bit),5012e102-0796-d169-129f-eb3b0c9611ff,,24,24,2,1,35
-Node-2,Ubuntu Linux (64-bit),501233e4-4590-12e9-34ac-6b7ad4180cec,,24,24,2,2,63
+Node-2,Ubuntu Linux (64-bit),501233e4-4590-12e9-34ac-6b7ad4180cec,,24,24,2,2,64
 DEVPurpose _Abhijeet_RND,Ubuntu Linux (64-bit),5012c1ab-36c0-2669-8198-fbdae08b9211,,8,4,1,1,157
 NODE-01,Ubuntu Linux (64-bit),50122e70-93d8-f76f-e402-0424bd1a3466,,16,8,2,1,10
-Node01,Ubuntu Linux (64-bit),501219ca-747d-7ad3-b327-cbddabc9af00,,16,8,2,1,26
+Node01,Ubuntu Linux (64-bit),501219ca-747d-7ad3-b327-cbddabc9af00,,16,8,2,1,27
 NODE-06,Ubuntu Linux (64-bit),5012abaf-e258-018c-696d-44b9751a42cd,,16,16,2,1,21
-Node05,Ubuntu Linux (64-bit),5012d410-b1d9-a358-877c-f9d2738141da,,20,16,2,2,41
+Node05,Ubuntu Linux (64-bit),5012d410-b1d9-a358-877c-f9d2738141da,,20,16,2,2,42
 NODE-03,Ubuntu Linux (64-bit),5012d8f2-551c-41c3-504f-aa2a90bef648,,20,16,2,2,38
 Node-4,Ubuntu Linux (64-bit),5012d2d9-ab3b-6745-82d8-79e7f1d9794d,,40,24,2,2,177
 jujumass201,Ubuntu Linux (64-bit),5012b501-4604-938c-9066-1e0c373bb2fd,,8,8,1,1,59
 Node-6,Ubuntu Linux (64-bit),50120ef2-8c54-7928-7f4b-4e3f5d5cca3d,,40,24,2,2,5
-Node03,Ubuntu Linux (64-bit),50127b23-1f0c-587e-b623-6d749dcacc52,,20,16,2,2,76
+Node03,Ubuntu Linux (64-bit),50127b23-1f0c-587e-b623-6d749dcacc52,,20,16,2,2,77
 NODE-04,Ubuntu Linux (64-bit),501220b4-0f03-a25d-bcd7-136d78681157,,20,16,2,2,36
 RHVFirewall,FreeBSD (64-bit),527b256f-6111-8db5-9c04-b0994475faca,,8,4,8,1,11
 JUJUMAAS203,Ubuntu Linux (64-bit),50122843-3812-8d62-97a3-fe4d4b1a7eb9,,16,8,1,1,25
@@ -324,7 +324,7 @@ Nikita_3.169,CentOS 7 (64-bit),5012c323-bedb-faa6-1c4f-637b16771d4f,,8,8,1,1,100
 asp-kolla-172.25.6.30,Ubuntu Linux (64-bit),501213db-cd36-3ae4-13d5-0e3708b8c822,,8,8,3,2,64
 Ubuntu_prashant_14.160,Ubuntu Linux (64-bit),501265b0-4510-6655-83a8-35daca6431d3,,16,8,1,1,48
 Centos8s-KVM-24.201,CentOS 8 (64-bit),5012536b-ff76-5011-2044-6c89fcf014bc,,36,20,2,1,182
-Vcenter7_EnggProd,Other 3.x or later Linux (64-bit),5211d64d-1503-a928-0096-c38f468fd56b,VMware vCenter Server Appliance,32,16,1,16,669
+Vcenter7_EnggProd,Other 3.x or later Linux (64-bit),5211d64d-1503-a928-0096-c38f468fd56b,VMware vCenter Server Appliance,32,16,1,16,670
 Pushkar-cento8-vulnerability-24.9,CentOS 8 (64-bit),501294c8-0b31-d552-d6df-039298dc9279,,8,4,1,1,25
 rhl7buildserver_10.215,Red Hat Enterprise Linux 7 (64-bit),52ccbd76-fba7-86e8-1fe3-494e51310eb9,,8,6,1,2,682
 Umang-kolla-victoria-24.141,CentOS 8 (64-bit),50129479-4da2-17d2-0692-ae65ede42900,,28,20,3,2,39
@@ -435,8 +435,8 @@ MinioRhel9.1,Red Hat Enterprise Linux 9 (64-bit),50127ba6-c341-e24e-532c-fe6f7f9
 Minio1,Red Hat Enterprise Linux 9 (64-bit),50120c9a-357d-cb82-8a58-a0cf1f7bab7d,,8,8,1,2,11
 Minio3,Red Hat Enterprise Linux 9 (64-bit),5012d39f-4127-4c2f-563c-0032365edde5,,8,8,1,2,11
 Alma_Rohit,CentOS 8 (64-bit),50120e41-5349-340e-3e8b-aea26ab666a8,,8,8,1,1,12
-dc4-n9f29-worker-ktjzx,Red Hat Enterprise Linux 7 (64-bit),28713836-ccdb-4d35-a62f-b8c876b2478c,dc4-n9f29-worker-ktjzx,40,8,1,3,697
-dc4-n9f29-worker-g6swt,Red Hat Enterprise Linux 7 (64-bit),9d8f5418-7cdf-46c1-b387-93f6908af527,dc4-n9f29-worker-g6swt,40,8,1,3,748
+dc4-n9f29-worker-ktjzx,Red Hat Enterprise Linux 7 (64-bit),28713836-ccdb-4d35-a62f-b8c876b2478c,dc4-n9f29-worker-ktjzx,40,8,1,3,698
+dc4-n9f29-worker-g6swt,Red Hat Enterprise Linux 7 (64-bit),9d8f5418-7cdf-46c1-b387-93f6908af527,dc4-n9f29-worker-g6swt,40,8,1,3,749
 dc4-n9f29-worker-wmqnd,Red Hat Enterprise Linux 7 (64-bit),db6626de-a944-4c8d-a9ed-a33f2d46a868,dc4-n9f29-worker-wmqnd,40,8,1,3,750
 Minio2,Red Hat Enterprise Linux 9 (64-bit),5012cd0d-39cd-9e1a-06ff-9f419f2f8d92,,8,8,1,2,11
 dc4-n9f29-master-0,Red Hat Enterprise Linux 7 (64-bit),50125c60-3e98-e50c-7cd1-b603ecedb4f4,Created By OpenShift Installer,32,4,1,1,182
@@ -490,7 +490,7 @@ rohit-worker2,Ubuntu Linux (64-bit),50128f19-1f63-682d-5577-4e2944fec268,,24,16,
 jeff-ubuntu-1,Ubuntu Linux (64-bit),50122692-98d5-88a3-f495-ceb1fb70dc5f,,4,2,2,3,34
 rohit-manager,Ubuntu Linux (64-bit),501265ba-24f0-ec55-2653-f0446a849a63,,24,16,1,1,14
 Atul-Migration-test-Ubuntu-20,Ubuntu Linux (64-bit),501203aa-ce8a-9ebd-7397-f4db7645d14e,,2,2,1,3,5
-dev1-rkppw-worker-0-ztkh6,Red Hat Enterprise Linux 8 (64-bit),b98d3f4a-0aa6-4fdd-bc16-e4f4186274a4,dev1-rkppw-worker-0-ztkh6,40,8,1,3,620
+dev1-rkppw-worker-0-ztkh6,Red Hat Enterprise Linux 8 (64-bit),b98d3f4a-0aa6-4fdd-bc16-e4f4186274a4,dev1-rkppw-worker-0-ztkh6,40,8,1,3,621
 dev1-rkppw-worker-0-2mfc9,Red Hat Enterprise Linux 8 (64-bit),622abc40-d527-4e27-9129-3b82d357d224,dev1-rkppw-worker-0-2mfc9,40,8,1,13,620
 dev1-rkppw-worker-0-j82st,Red Hat Enterprise Linux 8 (64-bit),0e2558fe-2d09-4821-a873-28bccafda132,dev1-rkppw-worker-0-j82st,40,8,1,5,619
 dev1-rkppw-master-2,Red Hat Enterprise Linux 8 (64-bit),5012e6f5-73bf-d3e8-af04-d0ea0c3a1246,Created By OpenShift Installer,32,4,1,1,152
@@ -518,12 +518,12 @@ Canonical_Node-2,Ubuntu Linux (64-bit),5012e269-e489-63e7-737d-7eb8ebfe71b4,,20,
 dc3-79w7l-worker-zwdws,Red Hat Enterprise Linux 8 (64-bit),f76390b6-40b5-4954-a718-82530b85dcaa,dc3-79w7l-worker-zwdws,40,8,1,3,268
 dc3-79w7l-master-0,Red Hat Enterprise Linux 8 (64-bit),50123515-1542-78ac-efa6-0adf016c5c0d,Created By OpenShift Installer,32,4,1,1,182
 Rancher_Demo,CentOS 7 (64-bit),5012c79e-b1d3-5be8-a46e-dd57bcfebfca,,8,8,2,1,19
-Canonical_Node-3,Ubuntu Linux (64-bit),50120bfd-0928-31a3-f7e0-507f8754f259,,20,16,2,2,132
+Canonical_Node-3,Ubuntu Linux (64-bit),50120bfd-0928-31a3-f7e0-507f8754f259,,20,16,2,2,133
 Canonical_MAAS_Controller,Ubuntu Linux (64-bit),50121016-9227-afef-a6e1-5a48a221878a,,8,8,1,1,39
-Canonical_Node-4,Ubuntu Linux (64-bit),501274bf-14f6-edc8-4bd8-8c7d79ff74a2,,20,16,2,2,100
+Canonical_Node-4,Ubuntu Linux (64-bit),501274bf-14f6-edc8-4bd8-8c7d79ff74a2,,20,16,2,2,102
 Demo_Pfsense,FreeBSD 12 (64-bit),52a4246d-b9b1-b2d7-45cc-07c614a8c15e,,8,8,6,1,30
 Canonical_Node-1,Ubuntu Linux (64-bit),501283fc-2147-e7fc-1187-162c4780fa10,,20,16,2,2,31
 windows-client,Microsoft Windows 10 (64-bit),525b7e62-49c0-d772-9574-d6fc54834631,,8,4,1,1,108
-Canonical_Node-5,Ubuntu Linux (64-bit),5012ca29-7e1d-4f0c-6e25-88014436df05,,32,32,2,2,105
+Canonical_Node-5,Ubuntu Linux (64-bit),5012ca29-7e1d-4f0c-6e25-88014436df05,,32,32,2,2,106
 JUJUMAAS,Ubuntu Linux (64-bit),50123f60-b5e1-205c-548f-09a99c53ceb3,,16,8,1,1,200
 DNS _Master,CentOS 7 (64-bit),52aaa57f-c393-7eed-7444-94463268c6be,,8,8,1,1,10

@@ -1,64 +1,64 @@
-Name,URL,Capacity,Free Space,Uncommitted,Provisioned,Over Provisioned,Hosts,Virtual Machines
-datastore1,ds:///vmfs/volumes/6163dca7-95da5240-b4e3-a4bf0176d23a/,3.5TB GB,935.5GB GB,3.1TB GB,5.7TB GB,2.2TB GB / 62.24901013264226 %,1,28
-datastore1 (1),ds:///vmfs/volumes/61667d44-12065aa6-83db-a4bf0176cce2/,3.5TB GB,2.1TB GB,755.5GB GB,2.2TB GB,0 GB,1,12
-datastore2 (1),ds:///vmfs/volumes/61667e94-a8d0c16e-52fd-a4bf0176cce2/,3.6TB GB,2.5TB GB,719.1GB GB,1.8TB GB,0 GB,1,13
-datastore3,ds:///vmfs/volumes/6163ec0a-926d732e-7ede-a4bf0176d23a/,3.6TB GB,1.9TB GB,42.7GB GB,1.7TB GB,0 GB,1,9
-datastore2,ds:///vmfs/volumes/6163ebea-a8b1561c-9fa9-a4bf0176d23a/,3.6TB GB,1.8TB GB,2.8TB GB,4.7TB GB,1.0TB GB / 28.735929389393743 %,1,17
-datastore1 (2),ds:///vmfs/volumes/64b79b6e-3ca16e9e-2534-ac1f6bbd5766/,3.5TB GB,2.5TB GB,2.6TB GB,3.6TB GB,45.0GB GB / 1.2496562484649734 %,1,14
-datastore3 (2),ds:///vmfs/volumes/5ebcf75b-1c02ee8a-2d7e-ac1f6bbd5766/,3.6TB GB,2.1TB GB,831.6GB GB,2.4TB GB,0 GB,1,14
-datastore2 (9),ds:///vmfs/volumes/5ebcf742-59484e50-e3d6-ac1f6bbd5766/,3.6TB GB,2.9TB GB,994.0GB GB,1.7TB GB,0 GB,1,32
-datastore1 (3),ds:///vmfs/volumes/5ead088e-ce58554c-9455-3cecef1a2f6a/,3.6TB GB,1.5TB GB,846.1GB GB,2.9TB GB,0 GB,1,10
-datastore3 (1),ds:///vmfs/volumes/5ece645f-93197d0c-3ea1-3cecef1a16f2/,5.5TB GB,4.8TB GB,2.1TB GB,2.7TB GB,0 GB,1,9
-datastore1 (10),ds:///vmfs/volumes/5ed8b742-4d4e4344-fb4f-3cecef1a16bc/,5.5TB GB,2.4TB GB,1.2TB GB,4.3TB GB,0 GB,1,9
-jujudatastore,ds:///vmfs/volumes/614c165e-aca05b80-67a3-3cecef0dc5a0/,3.5TB GB,1.9TB GB,5.3TB GB,6.9TB GB,3.4TB GB / 98.49637365788628 %,1,25
-datastore2 (1),ds:///vmfs/volumes/5ece643f-9bccc46a-d71b-3cecef1a16f2/,5.5TB GB,3.4TB GB,2.6TB GB,4.7TB GB,0 GB,1,10
-DataStore3,ds:///vmfs/volumes/62301013-e42b8be8-f0d6-08c0eb954fdc/,3.5TB GB,1.7TB GB,3.0TB GB,4.8TB GB,1.3TB GB / 36.66505464121253 %,1,12
-moskdatastore,ds:///vmfs/volumes/623d8fc0-88faeec4-16e6-08c0eb9558a4/,3.5TB GB,1.4TB GB,2.0TB GB,4.1TB GB,584.8GB GB / 16.34944731181749 %,1,10
-datastore3 (3),ds:///vmfs/volumes/5ed8c417-d7a50462-6658-3cecef1a16bc/,5.5TB GB,1.4TB GB,1.5TB GB,5.6TB GB,127.4GB GB / 2.2790217508891017 %,1,5
-datastore1 (6),ds:///vmfs/volumes/5ecf3d83-e1e453aa-2852-3cecef1a181a/,5.5TB GB,5.4TB GB,0.0bytes GB,76.5GB GB,0 GB,0,1
-DataStore5,ds:///vmfs/volumes/623010c8-76944240-f94a-08c0eb954fdc/,3.5TB GB,1.0TB GB,3.2TB GB,5.7TB GB,2.2TB GB / 61.77449215011101 %,1,10
-moskqa,ds:///vmfs/volumes/628cce7c-f8ce126c-e5c6-08c0eb9558a0/,3.5TB GB,1.8TB GB,3.9TB GB,5.6TB GB,2.1TB GB / 58.999312499894394 %,1,14
-datastore1 (13),ds:///vmfs/volumes/62304cb5-9497e794-e9c9-08c0eb9558a4/,319.0GB GB,316.5GB GB,0.0bytes GB,2.5GB GB,0 GB,1,0
-datastore_51.222.8.31_2,ds:///vmfs/volumes/5eafea59-42cc1362-e063-3cecef1a2f6a/,3.6TB GB,3.0TB GB,1.7TB GB,2.4TB GB,0 GB,1,35
-datastore2 (4),ds:///vmfs/volumes/5eacf9f9-34d0684c-07b2-3cecef1a3050/,3.6TB GB,1.1TB GB,1.5TB GB,4.1TB GB,477.4GB GB / 12.812061592240648 %,1,16
-Datastore 2,ds:///vmfs/volumes/6279e9f9-d9f1211c-c73a-08c0eb9558a0/,3.5TB GB,1.4TB GB,3.1TB GB,5.2TB GB,1.7TB GB / 48.730445795629294 %,1,15
-DataStore2,ds:///vmfs/volumes/62300fd9-966377f8-7a76-08c0eb954fdc/,3.5TB GB,1.8TB GB,2.8TB GB,4.5TB GB,1013.5GB GB / 28.33586159304327 %,1,18
-datastore1 (1),ds:///vmfs/volumes/5ece615b-486a60a2-0214-3cecef1a16f2/,5.5TB GB,3.8TB GB,2.9TB GB,4.6TB GB,0 GB,1,28
-datastore1 (8),ds:///vmfs/volumes/5eacef5c-c07490bc-4c42-3cecef1a3050/,3.6TB GB,3.3TB GB,1.9TB GB,2.2TB GB,0 GB,1,13
-datastore1 (15),ds:///vmfs/volumes/6279dfe3-a4aa9bbc-fe13-08c0eb9558a0/,319.0GB GB,316.9GB GB,0.0bytes GB,2.1GB GB,0 GB,1,1
-datastore3 (6),ds:///vmfs/volumes/5eacfa13-9cf74e2a-e933-3cecef1a3050/,3.6TB GB,1.4TB GB,2.2TB GB,4.5TB GB,887.2GB GB / 23.81144491908147 %,1,11
-Datastore 5,ds:///vmfs/volumes/62a00b85-e04c15ee-ab88-3cecef1c77a8/,3.6TB GB,1.4TB GB,1.2TB GB,3.4TB GB,0 GB,1,27
-datastore1 (12),ds:///vmfs/volumes/62300e25-7652ad9c-1b91-08c0eb954fdc/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0
-datastore2 (3),ds:///vmfs/volumes/5ecf409d-32ee5c18-d5aa-3cecef1a181a/,5.5TB GB,5.5TB GB,0.0bytes GB,1001.0MB GB,0 GB,0,5
-Datastore 3,ds:///vmfs/volumes/623061dc-16245d24-2853-08c0eb9558a4/,7.0TB GB,960.3GB GB,6.8TB GB,12.9TB GB,5.9TB GB / 84.02931041813235 %,1,48
-datastore_51.222.8.31_3,ds:///vmfs/volumes/5eafea77-da477ff6-24ee-3cecef1a2f6a/,3.6TB GB,1.3TB GB,1.8TB GB,4.2TB GB,530.1GB GB / 14.228086214676555 %,1,12
-datastore1 (17),ds:///vmfs/volumes/629f5451-280bd4d4-bdee-3cecef1c77a8/,3.5TB GB,1.1TB GB,580.8GB GB,2.9TB GB,0 GB,1,5
-datastore1 (5),ds:///vmfs/volumes/5ebcec82-33712476-0c3f-ac1f6bbd5766/,3.6TB GB,3.6TB GB,202.2GB GB,227.6GB GB,0 GB,0,10
-datastore1-42.43,ds:///vmfs/volumes/5ee85872-d036b0f6-c630-3cecef0d06f6/,5.5TB GB,5.3TB GB,0.0bytes GB,122.5GB GB,0 GB,0,8
-Datastore,ds:///vmfs/volumes/62306125-c376a9e8-5a90-08c0eb9558a4/,3.5TB GB,996.0GB GB,3.2TB GB,5.7TB GB,2.2TB GB / 64.28309829418187 %,1,17
-Datastore 4,ds:///vmfs/volumes/62a00b5c-a140d570-b35c-3cecef1c77a8/,3.6TB GB,2.0TB GB,4.6TB GB,6.2TB GB,2.6TB GB / 71.42574556711291 %,1,15
-datastore2 (2),ds:///vmfs/volumes/5ed8c3f4-142be7b2-1235-3cecef1a16bc/,5.5TB GB,2.8TB GB,5.1TB GB,7.8TB GB,2.3TB GB / 42.37195755907237 %,1,20
-datastore2 (5),ds:///vmfs/volumes/62453394-35752cc0-f362-a0423f3fb4e7/,3.6TB GB,3.6TB GB,0.0bytes GB,43.8GB GB,0 GB,0,13
-datastore2,ds:///vmfs/volumes/60d1b314-6a9c6040-3dfa-d05099de6d0c/,894.0GB GB,459.9GB GB,97.7GB GB,531.7GB GB,0 GB,1,4
-datastore1,ds:///vmfs/volumes/5f44b98d-c7e495e4-1561-3cecef0d14a8/,5.5TB GB,5.4TB GB,0.0bytes GB,22.8GB GB,0 GB,0,1
-Datastore 1,ds:///vmfs/volumes/6279e734-b70a89c0-9d90-08c0eb9558a0/,3.5TB GB,1.6TB GB,3.0TB GB,4.9TB GB,1.4TB GB / 41.36942384590486 %,1,20
-datastore2-42.43,ds:///vmfs/volumes/5ee86cb4-c15b9cee-5470-3cecef0d06f6/,5.5TB GB,5.4TB GB,214.0GB GB,242.5GB GB,0 GB,0,7
-DataStore4,ds:///vmfs/volumes/6230106b-3b1459b8-bbd3-08c0eb954fdc/,3.5TB GB,1.7TB GB,3.3TB GB,5.1TB GB,1.6TB GB / 45.47078790664027 %,1,12
-Datastore_staging2,ds:///vmfs/volumes/62317dc4-6f3b602c-aa1c-08c0ebae4e86/,3.5TB GB,644.8GB GB,958.8GB GB,3.8TB GB,314.0GB GB / 8.779236889853287 %,1,8
-DatastoreOcp,ds:///vmfs/volumes/645867ed-b50e2f24-b440-08c0eb9557b8/,10.5TB GB,2.0TB GB,233.7GB GB,8.7TB GB,0 GB,1,15
-datastore1 (1),ds:///vmfs/volumes/6278f15d-835f143c-6424-08c0ebae4e86/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0
-DatastoreRancher,ds:///vmfs/volumes/64586cbe-efb15d28-1289-08c0eb9557b8/,3.5TB GB,3.0TB GB,571.4GB GB,1.1TB GB,0 GB,1,9
-DatastoreOCP,ds:///vmfs/volumes/6461bf6b-51be4470-719d-08c0eb9555a8/,10.5TB GB,8.9TB GB,1.4TB GB,3.0TB GB,0 GB,1,7
-Datastore_staging4,ds:///vmfs/volumes/62317e4d-aa5ba630-9856-08c0ebae4e86/,3.5TB GB,2.4TB GB,1.8TB GB,2.8TB GB,0 GB,1,15
-datastore3,ds:///vmfs/volumes/627264fc-7bbd15c2-dd25-a4bf0176d122/,3.6TB GB,3.2TB GB,2.6TB GB,3.0TB GB,0 GB,1,12
-datastore1 (4),ds:///vmfs/volumes/6450a71b-1d286018-31a3-08c0eb9557b8/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0
-datastore1 (3),ds:///vmfs/volumes/6450a7cd-bde74e38-29c9-08c0eb95668c/,319.0GB GB,310.6GB GB,2.2GB GB,10.6GB GB,0 GB,1,1
-datastore1 (5),ds:///vmfs/volumes/6450a4d4-9dca0abc-d1e1-08c0eb9555a8/,319.0GB GB,295.4GB GB,1.2GB GB,24.8GB GB,0 GB,1,7
-datastore3 (1),ds:///vmfs/volumes/6450ae68-497dc490-4555-08c0eb9555a8/,447.0GB GB,326.8GB GB,97.8GB GB,218.0GB GB,0 GB,1,2
-Tanzu_Datastore,ds:///vmfs/volumes/629a0ebc-5a6c7000-7c3b-08c0ebae4e86/,15.0TB GB,15.0TB GB,564.4MB GB,29.1GB GB,0 GB,1,1
-datastore1,ds:///vmfs/volumes/6272559b-80a35c78-1535-a4bf0176d122/,3.5TB GB,1.5TB GB,130.6GB GB,2.2TB GB,0 GB,1,24
-Datastore_staging3,ds:///vmfs/volumes/62317dd8-0bb9f474-69e4-08c0ebae4e86/,3.5TB GB,3.0TB GB,2.1TB GB,2.6TB GB,0 GB,1,13
-datastore2,ds:///vmfs/volumes/627264c9-beef12a6-052c-a4bf0176d122/,3.6TB GB,1.5TB GB,593.2GB GB,2.7TB GB,0 GB,1,15
-Datastore_staging1,ds:///vmfs/volumes/62317da2-570a2f2c-894e-08c0ebae4e86/,3.5TB GB,2.6TB GB,789.1GB GB,1.7TB GB,0 GB,1,5
-datastore2 (1),ds:///vmfs/volumes/6450ae44-0d29f890-cfd8-08c0eb9555a8/,3.5TB GB,2.7TB GB,1.9TB GB,2.6TB GB,0 GB,1,11
-DatastoreDevOCP,ds:///vmfs/volumes/6458ccee-e6306234-8de3-08c0eb95668c/,10.5TB GB,2.8TB GB,5.3TB GB,12.9TB GB,2.5TB GB / 23.44002691616478 %,1,15
+Name,URL,Capacity,Free Space,Uncommitted,Provisioned,Over Provisioned,Hosts,Virtual Machines,Volume Type
+datastore1,ds:///vmfs/volumes/6163dca7-95da5240-b4e3-a4bf0176d23a/,3.5TB GB,934.4GB GB,3.1TB GB,5.7TB GB,2.2TB GB / 62.27224352619424 %,1,28,__DEFAULT__
+datastore1 (1),ds:///vmfs/volumes/61667d44-12065aa6-83db-a4bf0176cce2/,3.5TB GB,2.1TB GB,755.2GB GB,2.2TB GB,0 GB,1,12,__DEFAULT__
+datastore2 (1),ds:///vmfs/volumes/61667e94-a8d0c16e-52fd-a4bf0176cce2/,3.6TB GB,2.5TB GB,718.1GB GB,1.8TB GB,0 GB,1,13,__DEFAULT__
+datastore3,ds:///vmfs/volumes/6163ec0a-926d732e-7ede-a4bf0176d23a/,3.6TB GB,1.9TB GB,42.7GB GB,1.7TB GB,0 GB,1,9,__DEFAULT__
+datastore2,ds:///vmfs/volumes/6163ebea-a8b1561c-9fa9-a4bf0176d23a/,3.6TB GB,1.8TB GB,2.8TB GB,4.7TB GB,1.0TB GB / 28.741302317802226 %,1,17,__DEFAULT__
+datastore1 (2),ds:///vmfs/volumes/64b79b6e-3ca16e9e-2534-ac1f6bbd5766/,3.5TB GB,2.5TB GB,2.6TB GB,3.6TB GB,45.0GB GB / 1.2496562484649734 %,1,14,__DEFAULT__
+datastore3 (2),ds:///vmfs/volumes/5ebcf75b-1c02ee8a-2d7e-ac1f6bbd5766/,3.6TB GB,2.1TB GB,831.0GB GB,2.4TB GB,0 GB,1,14,__DEFAULT__
+datastore2 (9),ds:///vmfs/volumes/5ebcf742-59484e50-e3d6-ac1f6bbd5766/,3.6TB GB,2.9TB GB,993.6GB GB,1.7TB GB,0 GB,1,32,__DEFAULT__
+datastore1 (3),ds:///vmfs/volumes/5ead088e-ce58554c-9455-3cecef1a2f6a/,3.6TB GB,1.5TB GB,846.0GB GB,2.9TB GB,0 GB,1,10,__DEFAULT__
+datastore3 (1),ds:///vmfs/volumes/5ece645f-93197d0c-3ea1-3cecef1a16f2/,5.5TB GB,4.8TB GB,2.1TB GB,2.7TB GB,0 GB,1,9,__DEFAULT__
+datastore1 (10),ds:///vmfs/volumes/5ed8b742-4d4e4344-fb4f-3cecef1a16bc/,5.5TB GB,2.4TB GB,1.2TB GB,4.3TB GB,0 GB,1,9,__DEFAULT__
+jujudatastore,ds:///vmfs/volumes/614c165e-aca05b80-67a3-3cecef0dc5a0/,3.5TB GB,1.9TB GB,5.3TB GB,6.9TB GB,3.4TB GB / 98.49544340293076 %,1,25,__DEFAULT__
+datastore2 (1),ds:///vmfs/volumes/5ece643f-9bccc46a-d71b-3cecef1a16f2/,5.5TB GB,3.4TB GB,2.6TB GB,4.7TB GB,0 GB,1,10,__DEFAULT__
+DataStore3,ds:///vmfs/volumes/62301013-e42b8be8-f0d6-08c0eb954fdc/,3.5TB GB,1.7TB GB,3.0TB GB,4.8TB GB,1.3TB GB / 36.664918125870386 %,1,12,__DEFAULT__
+moskdatastore,ds:///vmfs/volumes/623d8fc0-88faeec4-16e6-08c0eb9558a4/,3.5TB GB,1.4TB GB,2.0TB GB,4.1TB GB,584.8GB GB / 16.34942000874906 %,1,10,__DEFAULT__
+datastore3 (3),ds:///vmfs/volumes/5ed8c417-d7a50462-6658-3cecef1a16bc/,5.5TB GB,1.4TB GB,1.5TB GB,5.6TB GB,127.4GB GB / 2.2790217508891017 %,1,5,__DEFAULT__
+datastore1 (6),ds:///vmfs/volumes/5ecf3d83-e1e453aa-2852-3cecef1a181a/,5.5TB GB,5.4TB GB,0.0bytes GB,76.5GB GB,0 GB,0,1,__DEFAULT__
+DataStore5,ds:///vmfs/volumes/623010c8-76944240-f94a-08c0eb954fdc/,3.5TB GB,1.0TB GB,3.2TB GB,5.7TB GB,2.2TB GB / 61.77413721022145 %,1,10,__DEFAULT__
+moskqa,ds:///vmfs/volumes/628cce7c-f8ce126c-e5c6-08c0eb9558a0/,3.5TB GB,1.8TB GB,3.9TB GB,5.6TB GB,2.1TB GB / 58.999312499894394 %,1,14,__DEFAULT__
+datastore1 (13),ds:///vmfs/volumes/62304cb5-9497e794-e9c9-08c0eb9558a4/,319.0GB GB,316.5GB GB,0.0bytes GB,2.5GB GB,0 GB,1,0,__DEFAULT__
+datastore_51.222.8.31_2,ds:///vmfs/volumes/5eafea59-42cc1362-e063-3cecef1a2f6a/,3.6TB GB,3.0TB GB,1.7TB GB,2.4TB GB,0 GB,1,35,__DEFAULT__
+datastore2 (4),ds:///vmfs/volumes/5eacf9f9-34d0684c-07b2-3cecef1a3050/,3.6TB GB,1.1TB GB,1.5TB GB,4.1TB GB,477.4GB GB / 12.812061592240648 %,1,16,__DEFAULT__
+Datastore 2,ds:///vmfs/volumes/6279e9f9-d9f1211c-c73a-08c0eb9558a0/,3.5TB GB,1.4TB GB,3.1TB GB,5.2TB GB,1.7TB GB / 48.73000894653445 %,1,15,__DEFAULT__
+DataStore2,ds:///vmfs/volumes/62300fd9-966377f8-7a76-08c0eb954fdc/,3.5TB GB,1.8TB GB,2.8TB GB,4.5TB GB,1013.5GB GB / 28.33586159304327 %,1,18,__DEFAULT__
+datastore1 (1),ds:///vmfs/volumes/5ece615b-486a60a2-0214-3cecef1a16f2/,5.5TB GB,3.8TB GB,2.9TB GB,4.6TB GB,0 GB,1,28,__DEFAULT__
+datastore1 (8),ds:///vmfs/volumes/5eacef5c-c07490bc-4c42-3cecef1a3050/,3.6TB GB,3.3TB GB,1.9TB GB,2.2TB GB,0 GB,1,13,__DEFAULT__
+datastore1 (15),ds:///vmfs/volumes/6279dfe3-a4aa9bbc-fe13-08c0eb9558a0/,319.0GB GB,316.9GB GB,0.0bytes GB,2.1GB GB,0 GB,1,1,__DEFAULT__
+datastore3 (6),ds:///vmfs/volumes/5eacfa13-9cf74e2a-e933-3cecef1a3050/,3.6TB GB,1.4TB GB,2.4TB GB,4.7TB GB,1.1TB GB / 29.16657716114328 %,1,11,__DEFAULT__
+Datastore 5,ds:///vmfs/volumes/62a00b85-e04c15ee-ab88-3cecef1c77a8/,3.6TB GB,1.4TB GB,1.2TB GB,3.4TB GB,0 GB,1,27,__DEFAULT__
+datastore1 (12),ds:///vmfs/volumes/62300e25-7652ad9c-1b91-08c0eb954fdc/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0,__DEFAULT__
+datastore2 (3),ds:///vmfs/volumes/5ecf409d-32ee5c18-d5aa-3cecef1a181a/,5.5TB GB,5.5TB GB,0.0bytes GB,1001.0MB GB,0 GB,0,5,__DEFAULT__
+Datastore 3,ds:///vmfs/volumes/623061dc-16245d24-2853-08c0eb9558a4/,7.0TB GB,958.0GB GB,6.8TB GB,12.9TB GB,5.9TB GB / 84.02952884267978 %,1,48,__DEFAULT__
+datastore_51.222.8.31_3,ds:///vmfs/volumes/5eafea77-da477ff6-24ee-3cecef1a2f6a/,3.6TB GB,1.3TB GB,1.8TB GB,4.2TB GB,530.1GB GB / 14.228086214676555 %,1,12,__DEFAULT__
+datastore1 (17),ds:///vmfs/volumes/629f5451-280bd4d4-bdee-3cecef1c77a8/,3.5TB GB,1.1TB GB,580.8GB GB,2.9TB GB,0 GB,1,5,__DEFAULT__
+datastore1 (5),ds:///vmfs/volumes/5ebcec82-33712476-0c3f-ac1f6bbd5766/,3.6TB GB,3.6TB GB,202.2GB GB,227.6GB GB,0 GB,0,10,__DEFAULT__
+datastore1-42.43,ds:///vmfs/volumes/5ee85872-d036b0f6-c630-3cecef0d06f6/,5.5TB GB,5.3TB GB,0.0bytes GB,122.5GB GB,0 GB,0,8,__DEFAULT__
+Datastore,ds:///vmfs/volumes/62306125-c376a9e8-5a90-08c0eb9558a4/,3.5TB GB,995.9GB GB,3.2TB GB,5.7TB GB,2.2TB GB / 64.28309829418187 %,1,17,__DEFAULT__
+Datastore 4,ds:///vmfs/volumes/62a00b5c-a140d570-b35c-3cecef1c77a8/,3.6TB GB,2.0TB GB,4.6TB GB,6.2TB GB,2.6TB GB / 71.42532621660298 %,1,15,__DEFAULT__
+datastore2 (2),ds:///vmfs/volumes/5ed8c3f4-142be7b2-1235-3cecef1a16bc/,5.5TB GB,2.8TB GB,5.1TB GB,7.8TB GB,2.3TB GB / 42.37195755907237 %,1,20,__DEFAULT__
+datastore2 (5),ds:///vmfs/volumes/62453394-35752cc0-f362-a0423f3fb4e7/,3.6TB GB,3.6TB GB,0.0bytes GB,43.8GB GB,0 GB,0,13,__DEFAULT__
+datastore2,ds:///vmfs/volumes/60d1b314-6a9c6040-3dfa-d05099de6d0c/,894.0GB GB,459.9GB GB,97.7GB GB,531.7GB GB,0 GB,1,4,__DEFAULT__
+datastore1,ds:///vmfs/volumes/5f44b98d-c7e495e4-1561-3cecef0d14a8/,5.5TB GB,5.4TB GB,0.0bytes GB,22.8GB GB,0 GB,0,1,__DEFAULT__
+Datastore 1,ds:///vmfs/volumes/6279e734-b70a89c0-9d90-08c0eb9558a0/,3.5TB GB,1.6TB GB,3.0TB GB,4.9TB GB,1.4TB GB / 41.36942384590486 %,1,20,__DEFAULT__
+datastore2-42.43,ds:///vmfs/volumes/5ee86cb4-c15b9cee-5470-3cecef0d06f6/,5.5TB GB,5.4TB GB,214.0GB GB,242.5GB GB,0 GB,0,7,__DEFAULT__
+DataStore4,ds:///vmfs/volumes/6230106b-3b1459b8-bbd3-08c0eb954fdc/,3.5TB GB,1.7TB GB,3.3TB GB,5.1TB GB,1.6TB GB / 45.47078790664027 %,1,12,__DEFAULT__
+Datastore_staging2,ds:///vmfs/volumes/62317dc4-6f3b602c-aa1c-08c0ebae4e86/,3.5TB GB,644.3GB GB,958.4GB GB,3.8TB GB,314.0GB GB / 8.779346102126999 %,1,8,__DEFAULT__
+DatastoreOcp,ds:///vmfs/volumes/645867ed-b50e2f24-b440-08c0eb9557b8/,10.5TB GB,2.0TB GB,233.6GB GB,8.7TB GB,0 GB,1,15,__DEFAULT__
+datastore1 (1),ds:///vmfs/volumes/6278f15d-835f143c-6424-08c0ebae4e86/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0,__DEFAULT__
+DatastoreRancher,ds:///vmfs/volumes/64586cbe-efb15d28-1289-08c0eb9557b8/,3.5TB GB,3.0TB GB,571.2GB GB,1.1TB GB,0 GB,1,9,__DEFAULT__
+DatastoreOCP,ds:///vmfs/volumes/6461bf6b-51be4470-719d-08c0eb9555a8/,10.5TB GB,8.9TB GB,1.4TB GB,3.0TB GB,0 GB,1,7,__DEFAULT__
+Datastore_staging4,ds:///vmfs/volumes/62317e4d-aa5ba630-9856-08c0ebae4e86/,3.5TB GB,2.4TB GB,1.8TB GB,2.8TB GB,0 GB,1,15,__DEFAULT__
+datastore3,ds:///vmfs/volumes/627264fc-7bbd15c2-dd25-a4bf0176d122/,3.6TB GB,3.2TB GB,2.6TB GB,3.0TB GB,0 GB,1,12,__DEFAULT__
+datastore1 (4),ds:///vmfs/volumes/6450a71b-1d286018-31a3-08c0eb9557b8/,319.0GB GB,317.6GB GB,0.0bytes GB,1.4GB GB,0 GB,1,0,__DEFAULT__
+datastore1 (3),ds:///vmfs/volumes/6450a7cd-bde74e38-29c9-08c0eb95668c/,319.0GB GB,310.6GB GB,2.2GB GB,10.6GB GB,0 GB,1,1,__DEFAULT__
+datastore1 (5),ds:///vmfs/volumes/6450a4d4-9dca0abc-d1e1-08c0eb9555a8/,319.0GB GB,295.4GB GB,1.2GB GB,24.8GB GB,0 GB,1,7,__DEFAULT__
+datastore3 (1),ds:///vmfs/volumes/6450ae68-497dc490-4555-08c0eb9555a8/,447.0GB GB,326.8GB GB,97.8GB GB,218.0GB GB,0 GB,1,2,__DEFAULT__
+Tanzu_Datastore,ds:///vmfs/volumes/629a0ebc-5a6c7000-7c3b-08c0ebae4e86/,15.0TB GB,15.0TB GB,564.4MB GB,29.1GB GB,0 GB,1,1,__DEFAULT__
+datastore1,ds:///vmfs/volumes/6272559b-80a35c78-1535-a4bf0176d122/,3.5TB GB,1.5TB GB,130.6GB GB,2.2TB GB,0 GB,1,24,__DEFAULT__
+Datastore_staging3,ds:///vmfs/volumes/62317dd8-0bb9f474-69e4-08c0ebae4e86/,3.5TB GB,3.0TB GB,2.1TB GB,2.6TB GB,0 GB,1,13,__DEFAULT__
+datastore2,ds:///vmfs/volumes/627264c9-beef12a6-052c-a4bf0176d122/,3.6TB GB,1.5TB GB,593.2GB GB,2.7TB GB,0 GB,1,15,__DEFAULT__
+Datastore_staging1,ds:///vmfs/volumes/62317da2-570a2f2c-894e-08c0ebae4e86/,3.5TB GB,2.6TB GB,789.1GB GB,1.7TB GB,0 GB,1,5,__DEFAULT__
+datastore2 (1),ds:///vmfs/volumes/6450ae44-0d29f890-cfd8-08c0eb9555a8/,3.5TB GB,2.7TB GB,1.9TB GB,2.6TB GB,0 GB,1,11,__DEFAULT__
+DatastoreDevOCP,ds:///vmfs/volumes/6458ccee-e6306234-8de3-08c0eb95668c/,10.5TB GB,2.8TB GB,5.3TB GB,12.9TB GB,2.5TB GB / 23.44002691616478 %,1,15,__DEFAULT__

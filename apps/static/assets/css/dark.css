@@ -57,6 +57,7 @@ body.dark {
     body.dark .nav-pills .nav-link.active, body.dark .nav-pills .nav-pills .show > .nav-link {
       background-color: #082032; }
   body.dark .custom-select,
+  body.dark select,
   body.dark .form-control,
   body.dark .input-group-prepend,
   body.dark .input-group-append {
