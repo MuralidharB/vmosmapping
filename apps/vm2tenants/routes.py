@@ -1,4 +1,5 @@
 import re
+import os
 import pandas as pd
 
 from flask import render_template, redirect, request, url_for, jsonify
@@ -26,19 +27,26 @@ def get_vm2tenants():
 @blueprint.route('/payload', methods=['GET', 'POST'])
 @login_required
 def get_vm2tenants_payload():
-    if request.method == 'POST':
+    if not os.path.exists("data/vminventory_mapping.csv"):
         vms = pd.read_csv("data/vminventory.csv")
-        tenants = vms.Tenant
+        vms_mapping = vms[['Instance UUID', "Tenant"]]
+        vms_mapping.to_csv("data/vminventory_mapping.csv")
+
+    if request.method == 'POST':
+        vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
+        tenants = vms_mapping.to_dict('records')
         for key, value in request.form.items():
             if 'Tenant' in key:
                 m = re.match(r"data\[(\d+)\]\[Tenant\]", key)
                 idx = int(m.groups()[0])
-                tenants[idx] = value            
-        vms['Tenant'] = tenants
-        vms.to_csv("data/vminventory.csv") 
+                tenants[idx]['Tenant'] = value            
+        vms_mapping = pd.DataFrame(tenants)
+        vms_mapping.to_csv("data/vminventory_mapping.csv") 
     vms = pd.read_csv("data/vminventory.csv")
+    vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
     vms['seqno'] = vms.index
     vms = vms.fillna(value="")
+    vms['Tenant'] = vms_mapping['Tenant']
     vms = vms.to_dict('records')
     support_matrix = pd.read_csv("data/supportmatrix.csv").to_dict('records')
     for vm in vms:

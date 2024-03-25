@@ -269,8 +269,10 @@ def discover_vcenter_vms():
 
     try:
         with open('data/vminventory.csv', 'w', newline='') as csvfile:
-            fieldnames = ["Name", "Template", "Datastore Path", "Guest", "Instance UUID", "Bios UUID",
-                          "Annotation", "State", "VMware-tools", "IP", "Question", "VM Path", "Tenant"]
+            fieldnames = ['Name', 'Template', 'Datastore Path', 'Guest', 
+                          'Instance UUID', 'Bios UUID', 'Annotation', 'State', 
+                          'VMware-tools', 'IP', 'Question', 'VM Path',
+                          'Hot CPU', 'FT Info', 'Nested HV', 'NPIV', 'Numa', 'Tenant']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writeheader()
