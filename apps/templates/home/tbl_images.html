@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} OpenStack Glance Images {% endblock %} 
+{% block title %} Manage Glance Images{% endblock %} 
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -21,26 +21,28 @@
                                 <div class="col-xl-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Glance Images</h5>
-                                            <span class="d-block m-t-5">You can edit, delete images required for migration</span>
+                                            <h5>OpenStack Glance Images</h5>
+                                            <span class="d-block m-t-5">Change image boot option to BIOS or UEFI</span>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table id="images" class="table table-striped">
+                                                <table id="images" class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>
-                                                            <th>#</th>
+                                                            <th></th>
                                                             <th>Name</th>
                                                             <th>Description</th>
-                                                            <th>Flags</th>
+                                                            <th>Boot Option</th>
+                                                            <th>QEMU Agent</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>#</th>
+                                                            <th></th>
                                                             <th>Name</th>
-                                                            <th>Description</th>
-                                                            <th>Flags</th>
+                                                            <th>Capacity</th>
+                                                            <th>Boot Option</th>
+                                                            <th>QEMU Agent</th>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -50,7 +52,6 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create Images</button>
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -62,36 +63,46 @@
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 <script>
 var base_url = window.location.origin;
-
-let editor = new DataTable.Editor( {
-    ajax: base_url + '/images/json',
+let images_editor = new DataTable.Editor( {
+    ajax: base_url + '/images/list',
     table: '#images',
+    idSrc:  'seqno',
     fields: [
-        { label: "#", name: 'DT_RowId'},
-        { label: 'Network Name', name: 'Network Name' },
-        { label: 'VM Name',  name: 'VM Name'  },
-        { label: 'VM Instance UUID',  name: 'VM Instance UUID'  },
+        { label: "", name: 'seqno'},
+        { label: 'Name',  name: 'name'},
+        { label: 'Visibility', name: 'visibility'},
+        { label: 'Boot Option',  name: 'boot_option', type: 'select'},
+        { label: 'QEMU Agent',  name: 'qemu_agent', type: 'select'},
     ]
 } );
 
-let table = new DataTable('#images', {
-    ajax: base_url + '/images/json',
-    order: [['Network Name', 'asc']],
-    rowGroup: {
-       dataSrc: 'Network Name',
-    },
+let images_table = new DataTable('#images', {
+    ajax: base_url + '/images/list',
     columns: [
-        { data: 'DT_RowId'},
-        { data: 'Network Name' },
-        { data: 'VM Name' },
-        { data: 'VM Instance UUID' },
-        // etc
+        { data: 'seqno'},
+        { data: 'name' },
+        { data: 'visibility' },
+        { editField: 'boot_option', data: "boot_option" },
+        { editField: "qemu_agent", data: 'qemu_agent', },
     ],
-    select: true
-} );
+    order: [0, 'asc'],
+    select: true,
+});
+
+images_table.on('click', 'td:last-child', function () {
+    images_editor.inline(this, {
+        onBlur: 'submit'
+    });
+});
+
+images_table.on('click', 'td:nth-child(4)', function () {
+    images_editor.inline(this, {
+        onBlur: 'submit'
+    });
+});
+ 
 </script>
 {% endblock javascripts %}

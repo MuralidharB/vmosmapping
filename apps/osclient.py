@@ -30,6 +30,7 @@ from keystoneauth1 import session
 from keystoneclient.v3 import client as keystone_client
 from novaclient import client as nova_client
 from cinderclient import client as cinder_client
+from glanceclient import client as glance_client
 from novaclient import api_versions
 
 from oslo_config import cfg
@@ -214,6 +215,27 @@ def get_volume_types():
                       'is_public': v.is_public,
                       'description': v.description})
     return types
+
+
+def get_image_list():
+    # Get a keystone session.
+    sess = get_session()
+
+    # Create a OpenStack nova client.
+    # https://goo.gl/ryuyzF
+    glanceclient = glance_client.Client(version=2, session=sess)
+    images = glanceclient.images.list()
+    imgs = []
+    for im in images:
+        img = {'id': im.id, 'name': im.name,
+               'visibility': im.visibility,
+               'hw_firmware_type': im.hw_firmware_type if hasattr(im, "hw_firmware_type") else "None",
+               'hw_machine_type': im.hw_machine_type if hasattr(im, 'hw_machine_type') else "None",
+               'qemu_agent': im.hw_qemu_guest_agent if hasattr(im, 'hw_qemu_guest_agent') else "no",}
+        img['boot_option'] = 'UEFI' if img['hw_firmware_type'] == 'uefi' and img['hw_machine_type'] == 'q35' else 'BIOS'
+        imgs.append(img)
+
+    return imgs
 
 
 def get_openstack_tenants():
