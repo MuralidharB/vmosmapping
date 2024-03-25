@@ -20,7 +20,6 @@ def get_image_list():
 
     if request.method == 'POST':
         try:
-            import pdb;pdb.set_trace()
             if request.form['action'] == 'edit':
                 for key, value in request.form.items():
                     if key == 'action':
