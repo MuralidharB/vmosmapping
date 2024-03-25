@@ -30,7 +30,7 @@ def get_vm2tenants_payload():
     if not os.path.exists("data/vminventory_mapping.csv"):
         vms = pd.read_csv("data/vminventory.csv")
         vms_mapping = vms[['Instance UUID', "Tenant"]]
-        vms_mapping.to_csv("data/vminventory_mapping.csv")
+        vms_mapping.to_csv("data/vminventory_mapping.csv", index=False)
 
     if request.method == 'POST':
         vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
@@ -41,7 +41,7 @@ def get_vm2tenants_payload():
                 idx = int(m.groups()[0])
                 tenants[idx]['Tenant'] = value            
         vms_mapping = pd.DataFrame(tenants)
-        vms_mapping.to_csv("data/vminventory_mapping.csv") 
+        vms_mapping.to_csv("data/vminventory_mapping.csv", index=False) 
     vms = pd.read_csv("data/vminventory.csv")
     vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
     vms['seqno'] = vms.index

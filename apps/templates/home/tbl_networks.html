@@ -126,9 +126,14 @@ let editor = new DataTable.Editor( {
     table: '#network',
     fields: [
         { label: "#", name: 'DT_RowId'},
-        { label: 'Network Name', name: 'Network Name' },
-        { label: 'VM Name',  name: 'VM Name'  },
-        { label: 'Tenant',  name: 'Tenant'  },
+        { label: 'Network Name', name: 'Network Name', multiEditable: false },
+        { label: 'VM Name',  name: 'VM Name', multiEditable: false  },
+        { label: 'Tenant',  name: 'Tenant', type: 'select',
+          options: [
+             {% for tenant in tenants %}
+                 "{{ tenant['domain_name'] }}/{{ tenant['name'] }}",
+             {% endfor %}
+          ]  },
     ]
 } );
 
@@ -147,6 +152,13 @@ let table = new DataTable('#network', {
         { data: 'Subnet' },
         // etc
     ],
+    layout: {
+        topStart: {
+            buttons: [
+                { extend: 'edit',   editor: editor, text: 'Assign Tenant' },
+            ]
+        }  
+    },
     select: true
 } );
 

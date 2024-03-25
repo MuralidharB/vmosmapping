@@ -32,7 +32,7 @@ def get_datastores():
                     mapping[idx]["Volume Type"] = value
                     mapping[idx]['modified'] = True
                 mapping = pd.DataFrame(mapping)
-                mapping.to_csv("data/vmdatastores_mapping.csv")
+                mapping.to_csv("data/vmdatastores_mapping.csv", index=False)
         except Exception as ex:
             return jsonify({"message": str(ex)}), 500 
 
@@ -40,7 +40,7 @@ def get_datastores():
     if not os.path.exists("data/vmdatastores_mapping.csv"):
         mapping = datastores[['URL', 'Volume Type']]
         mapping['modified'] = False
-        mapping.to_csv("data/vmdatastores_mapping.csv")
+        mapping.to_csv("data/vmdatastores_mapping.csv", index=False)
     volume_types = get_volume_types()
     datastores['seqno'] = datastores.index
     datastores = datastores.fillna(value="")

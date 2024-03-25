@@ -92,7 +92,7 @@ def get_recommended_flavors():
                          'swap': fl.swap, 'is_public': fl.is_public,
                          'disk': fl.disk, 'already_exists': True, "modified": False})
             potential_flavors = pd.DataFrame(potential_flavors)
-            potential_flavors.to_csv("data/vmflavors_openstack.csv")
+            potential_flavors.to_csv("data/vmflavors_openstack.csv", index=False)
 
     if request.method == 'POST':
         try:
@@ -106,7 +106,7 @@ def get_recommended_flavors():
                     flavors[idx][k] = value
                     flavors[idx]['modified'] = True
                 flavors = pd.DataFrame(flavors)
-                flavors.to_csv("data/vmflavors_openstack.csv")
+                flavors.to_csv("data/vmflavors_openstack.csv", index=False)
         except Exception as ex:
             return jsonify({"message": str(ex)}), 500 
 

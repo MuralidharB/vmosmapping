@@ -1,3 +1,5 @@
+import re
+import os
 import pandas as pd
 from flask import render_template, redirect, request, url_for, jsonify
 from flask_login import login_required
@@ -21,20 +23,40 @@ def get_networks():
         return render_template('home/page-500.html'), 500
 
 
-@blueprint.route('/json', methods=['GET'])
+@blueprint.route('/json', methods=['GET', 'POST'])
 @login_required
 def get_networks_json():
+    if not os.path.exists("data/vminventory_mapping.csv"):
+        vms = pd.read_csv("data/vminventory.csv")
+        vms_mapping = vms[['Instance UUID', "Tenant"]]
+        vms_mapping.to_csv("data/vminventory_mapping.csv", index=False)
+
+    if request.method == 'POST':
+        vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
+        networks = pd.read_csv("data/vmnetworks.csv").to_dict('records')
+        tenants = vms_mapping.to_dict('records')
+        for key, value in request.form.items():
+            if 'Tenant' in key:
+                m = re.match(r"data\[(\d+)\]\[Tenant\]", key)
+                idx = int(m.groups()[0])
+                net = networks[idx]
+                for t in tenants:
+                    if net['VM Instance UUID'] == t['Instance UUID']:
+                        t['Tenant'] = value
+        vms_mapping = pd.DataFrame(tenants)
+        vms_mapping.to_csv("data/vminventory_mapping.csv", index=False) 
+
     networks = pd.read_csv("data/vmnetworks.csv")
-    vms = pd.read_csv("data/vminventory.csv")
+    vms = pd.read_csv("data/vminventory_mapping.csv")
 
     networks['DT_RowId'] = networks.index
     networks = networks.to_dict('records')
-    for n in networks:
-        tenant = vms['Tenant'][vms['Instance UUID'] == n['VM Instance UUID']]
+    for net in networks:
+        tenant = vms['Tenant'][vms['Instance UUID'] == net['VM Instance UUID']]
         if tenant.empty:
-            n['Tenant'] = "NA"
+            net['Tenant'] = "NA"
         else:
-            n['Tenant'] = tenant.iloc[0]
-        n["Network"] = ""
-        n["Subnet"] = ""
+            net['Tenant'] = tenant.iloc[0]
+        net["Network"] = ""
+        net["Subnet"] = ""
     return jsonify({"data": networks})
