@@ -102,7 +102,7 @@ let vm2tenant_table = new DataTable('#vm2tenants', {
     columns: [
         { data: 'seqno'},
         { data: 'supported',
-          render: function (data, type) {
+          render: function (data, type, full, meta) {
               let r = '';
  
               switch (data) {
@@ -116,6 +116,7 @@ let vm2tenant_table = new DataTable('#vm2tenants', {
                       r = '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>'
                       break;
               }
+              r = '<span data-toggle="tooltip" title="' + data + '">' + r + '</span>';
               return r
            },
         },
@@ -134,5 +135,8 @@ let vm2tenant_table = new DataTable('#vm2tenants', {
     },
     select: true
 } );
+vm2tenant_table.on('draw.dt', function () {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
 </script>
 {% endblock javascripts %}
