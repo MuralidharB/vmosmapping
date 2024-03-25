@@ -205,10 +205,11 @@ tenant_vms_table.on('user-select', function (e, dt, type, cell, originalEvent) {
     }
 });
 
-$('button[data-toggle="pill"]').on('show.bs.tab', function (event) {
-  event.target // newly activated tab
-  event.relatedTarget // previous active tab
-  console.log(event)
-})
+
+$('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("href") // activated tab
+  alert(target);
+});
+
 </script>
 {% endblock javascripts %}

@@ -28,9 +28,13 @@ def get_migration_plans():
 def tenant_vms():
     tenant_name = urllib.parse.parse_qs(request.query_string.decode())['tenant_name'][0]
     domain_name = urllib.parse.parse_qs(request.query_string.decode())['domain_name'][0]
+    vms_mapping = pd.read_csv("data/vminventory_mapping.csv")
     vms = pd.read_csv("data/vminventory.csv")
-    vms = vms.loc[vms['Tenant'] == "%s/%s" % (domain_name, tenant_name)]
     vms['seqno'] = vms.index
+    vms_mapping.index = vms_mapping["Instance UUID"]
+    vms.index = vms_mapping["Instance UUID"]
+    vms['Tenant'] = vms_mapping.Tenant
+    vms = vms.loc[vms['Tenant'] == "%s/%s" % (domain_name, tenant_name)]
     vms = vms.fillna(value="")
     vms = vms.to_dict('records')
     return jsonify({"data": vms})
