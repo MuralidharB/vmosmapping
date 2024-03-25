@@ -51,19 +51,39 @@ def get_vm2tenants_payload():
     support_matrix = pd.read_csv("data/supportmatrix.csv").to_dict('records')
     for vm in vms:
         found = False
+        msg = ""
+        if vm['Hot CPU']:
+            msg += "Hot CPU is feature enabled. Make sure OpenStack supports Hot Add/Remove CPU.\n"
+        if vm['FT Info']:
+            msg += "FT is enabled on the VM. OpenStack does not support this feature.\n"
+        if vm['Nested HV']:
+            msg += "Nested hypervisor feature enabled.\n"
+        if vm['NPIV']:
+            msg += "NPIV enabled.\n"
+        if vm['Numa']:
+            msg += "NUMA configured. Make sure OpenStack has a right flavor to accept NUMA VMs\n"
+
         for s in support_matrix:
             if s['Guest OS'] in vm['Guest']:
                 found = True
                 break
         if not found:
             vm['supported'] = 'Error'
+            vm['support_message'] = "Support matrix does not the VM\n" + msg
         else:
             if "%s host" % CONF.migration.hypervisor in s.keys():
                 if s["%s host" % CONF.migration.hypervisor].lower() == "supported":
-                    vm['supported'] = "Success"
+                    if not msg:
+                        vm['supported'] = "Success"
+                        vm['support_message'] = "Success"
+                    else:
+                        vm['supported'] = "Warning"
+                        vm['support_message'] = msg
                 else:
                     vm['supported'] = "Error"
+                    vm['support_message'] = "Support matrix does not the VM\n" + msg
             else:
                 vm['supported'] = "Warning"
+                vm['support_message'] = "Plese refer to support matrix\n" + msg
                 
     return jsonify({"data": vms})

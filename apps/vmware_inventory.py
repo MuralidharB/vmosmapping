@@ -74,10 +74,10 @@ def vm_info_for_tenant_mapping(virtual_machine):
           "FT Info": config.ftInfo != None,
           "Nested HV": config.nestedHVEnabled,
           "NPIV": (config.npivDesiredNodeWwns != None) | (config.npivDesiredPortWwns != None) | \
-                  (config.npivNodeWorldWideName != None) | (config.npivOnNonRdmDisks != None) | \
-                  (config.npivPortWorldWideName != None) | (config.npivTemporaryDisabled != None) | \
+                  (config.npivNodeWorldWideName != []) | (config.npivOnNonRdmDisks != None) | \
+                  (config.npivPortWorldWideName != []) | (config.npivTemporaryDisabled == False) | \
                   (config.npivWorldWideNameType != None) ,
-          "Numa": config.numaInfo,
+          "Numa": config.numaInfo != None,
           "Tenant": "Domain/Project",
     }
 
