@@ -35,6 +35,11 @@
                      <option>Dry Run</option>
                    </select>
                  </div>
+                 <div class="form-group">
+                   <label for="migration-plan-vms">VMs to Migrate</label>
+                   <ul id="migration-plan-vms" class="form-control list-group list-group-flush">
+                     </ul>
+                 </div>
                </form>
           </div>
           <div class="modal-footer">
@@ -98,6 +103,7 @@
                                                                                     <th>VM Path</th>
                                                                                     <th>Name</th>
                                                                                     <th>Guest</th>
+                                                                                    <th>IP Address</th>
                                                                                     <th>Migration Plan</th>
                                                                                 </tr>
                                                                             </thead>
@@ -167,7 +173,8 @@ let tenant_vms_editor = new DataTable.Editor( {
         { label: 'VM Path',  name: 'VM Path', multiEditable: false },
         { label: 'Name', name: 'Name', multiEditable: false },
         { label: 'Guest',  name: 'Guest', multiEditable: false  },
-        { label: 'Migration Plan',  name: 'IP', multiEditable: false  },
+        { label: 'IP Address',  name: 'IP', multiEditable: false  },
+        { label: 'Migration Plan',  name: 'Migration Plan', multiEditable: false  },
     ]
 } );
 
@@ -180,6 +187,7 @@ let tenant_vms_table = new DataTable('#tenant_vms', {
         { data: 'Name' },
         { data: 'Guest' },
         { data: 'IP' },
+        { data: 'Migration Plan' },
     ],
     layout: {
         topStart: {
@@ -187,7 +195,13 @@ let tenant_vms_table = new DataTable('#tenant_vms', {
                 { extend: 'selected', 'text': 'Create Migration Plan', action: function ( e, dt, node, config ) {
                      e.preventDefault();
                      jQuery.noConflict();
+                     selected_rows = tenant_vms_table.rows( { selected: true } ).data()
                      $('#migration-plan').modal('show') 
+                     var innertext = ""
+                     for (i = 0;i < selected_rows.length; i++) {
+                         innertext +=  '<li class="list-group-item">' + selected_rows[i].Name + '</li>'
+                     }
+                     document.getElementById("migration-plan-vms").innerHTML = innertext;
             } },
                 { extend: 'selectNone', 'text': 'DeSelectAll' }]
         }
@@ -200,7 +214,7 @@ let tenant_vms_table = new DataTable('#tenant_vms', {
 tenant_vms_table.on('user-select', function (e, dt, type, cell, originalEvent) {
     row = cell[0][0].row
     
-    if (this.childNodes[3].childNodes[row].childNodes[4].textContent != "") {
+    if (this.childNodes[3].childNodes[row].childNodes[5].textContent != "") {
         e.preventDefault();
     }
 });

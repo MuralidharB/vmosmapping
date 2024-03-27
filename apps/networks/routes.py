@@ -1,11 +1,13 @@
 import re
 import os
+import json
 import pandas as pd
 from flask import render_template, redirect, request, url_for, jsonify
 from flask_login import login_required
 from apps.networks import blueprint
 
 from apps.osclient import get_openstack_tenants
+from apps.osclient import create_network as os_create_network
 
 
 @blueprint.route('/', methods=['GET'])
@@ -60,3 +62,15 @@ def get_networks_json():
         net["Network"] = ""
         net["Subnet"] = ""
     return jsonify({"data": networks})
+
+
+@blueprint.route('/create', methods=['POST'])
+@login_required
+def create_network():
+    params = json.loads(request.data.decode())
+    dname = params['tenant'].split("/")[0].strip()
+    pname = params['tenant'].split("/")[1].strip()
+
+    network = os_create_network(params['name'], params['description'],
+                             None, None, None,
+                             dname, pname)

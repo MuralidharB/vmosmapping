@@ -31,6 +31,8 @@ from keystoneclient.v3 import client as keystone_client
 from novaclient import client as nova_client
 from cinderclient import client as cinder_client
 from glanceclient import client as glance_client
+from neutronclient.v2_0 import client as neutron_client
+from workloadmgrclient.v1 import client as wmgr_client
 from novaclient import api_versions
 
 from oslo_config import cfg
@@ -238,6 +240,70 @@ def get_image_list():
     return imgs
 
 
+def get_networks_list():
+    # Get a keystone session.
+    sess = get_session()
+
+    # Create a OpenStack nova client.
+    # https://goo.gl/ryuyzF
+    neutronclient = neutron_client.Client(version=2, session=sess)
+    nets = neutronclient.networks.list()
+    networks = []
+    for n in nets:
+        net = {'id': n.id, 'name': n.name,
+               'description': n.description,}
+        networks.append(net)
+
+    return networks
+
+
+def create_network(name, description,
+                   subnet_name, subnet_description,
+                   subnet_mask,
+                   project_domain_name, project_name):
+    # Get a keystone session.
+    sess = get_session()
+
+    # Create a OpenStack nova client.
+    # https://goo.gl/ryuyzF
+
+    tenants = get_openstack_tenants()
+    tenant_id = None
+    for dk, dv in tenants['domains'].items():
+        if dv['name'] == project_domain_name:
+            for pk, pv in dv['projects'].items():
+                if pv == project_name:
+                    tenant_id = pk
+            break
+
+    neutronclient = neutron_client.Client(version=2, session=sess)
+    network = neutronclient.create_network(
+        {"network": {"admin_state_up": True, "description": description, "name": name}})
+
+
+def get_migration_plans(project_name, domain_name):
+    client = wmgr_client.Client(username=CONF.openstack.admin_user,
+                            password=CONF.openstack.admin_password,
+                            user_domain_name = CONF.openstack.admin_domain,
+                            project_domain_name = domain_name,
+                            project_name=project_name,
+                            auth_url=CONF.openstack.keystone_url,
+                            insecure=not CONF.openstack.ssl_verify,
+                            service_type="workloads")
+    return client.migration_plans.list()
+
+
+def create_migration_plan(project_name, domain_name):
+    client = wmgr_client.Client(username=CONF.openstack.admin_user,
+                            password=CONF.openstack.admin_password,
+                            user_domain = CONF.openstack.admin_domain,
+                            project_name=CONF.openstack.admin_project,
+                            auth_url=CONF.openstack.keystone_url,
+                            insecure=not CONF.openstack.ssl_verify,
+                            service_type="workloads")
+    client.migration_plans.create()
+
+
 def get_openstack_tenants():
     """Main function."""
     # Get a keystone session.
@@ -249,10 +315,6 @@ def get_openstack_tenants():
     keystone = keystone_client.Client(version=3, session=sess)
 
     regions, domains, users = get_user_map(keystone)
-    flavors = get_flavor_map(nova)
-    servers = query_servers(nova)
-    server_flavour_summary(servers, flavors)
-    user_summary(servers, users)
 
     return {'domains': domains, "regions": regions}
 

@@ -17,8 +17,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-               <form>
+          <form id="create-network-form" method="POST" role="form" class="form-horizontal">
+              <div class="modal-body">
                  <div class="form-group">
                    <label for="network-name">Name</label>
                    <input type="text" class="form-control" id="network-name" placeholder="Network name here">
@@ -36,8 +36,8 @@
                    <input type="text" class="form-control" id="subnet-mask" placeholder="subnet mask here">
                  </div>
                  <div class="form-group">
-                   <label for="subnet-mask">Tenant</label>
-                   <select id="Tenant" class="form-control">
+                   <label for="network-tenant">Tenant</label>
+                   <select id="network-tenant" class="form-control">
                      {% for tenant in tenants %}
                          {% if loop.index == 1 %}
                             <option selected>{{ tenant['domain_name'] }} / {{ tenant['name'] }}</option>
@@ -47,12 +47,12 @@
                      {% endfor %}
                    </select>
                  </div>
-               </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Create</button>
-          </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Create</button>
+              </div>
+          </form>
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
                                 </div>
                                 <!-- [ stiped-table ] end -->
                             </div>
-                            <button id="create-network-button" type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create a Tenant Network</button>
+                            <!--button id="create-network-button" type="button" class="btn btn-primary" title="btn btn-primary" data-toggle="tooltip">Create a Tenant Network</button-->
                             <!-- [ Main Content ] end -->
                         </div>
                     </div>
@@ -156,19 +156,63 @@ let table = new DataTable('#network', {
         topStart: {
             buttons: [
                 { extend: 'edit',   editor: editor, text: 'Assign Tenant' },
+                { text: 'Create Tenant Network',
+                  action: function ( e, dt, node, config ) {
+                       event.preventDefault();
+
+                       jQuery.noConflict();
+                       r = table.rows( { selected: true } ).data()[0]
+                       $("#create-network").modal('show')
+                       if (r.Tenant != "") {
+                           $('#network-tenant')[0].value = r.Tenant.split("/")[0] + " / " + r.Tenant.split("/")[1]
+                       }
+                       $('#network-name')[0].value = r['Network Name']
+                       $('#network-description')[0].value = "Network corresponding to VMware Network " +  r['Network Name']
+                       $('#subnet-name')[0].value = "subnet for " +  r['Network Name']
+                  }
+                }
             ]
         }  
     },
     select: true
 } );
 
-const create_networks = document.getElementById('create-network-button');
+const create_networks = document.getElementById('create-network-form');
 
-create_networks.addEventListener('click', function (event) {
+create_networks.addEventListener('submit', function (event) {
   event.preventDefault();
 
   jQuery.noConflict();
-  $("#create-network").modal('show')
+  const data = {}
+
+  data['tenant'] = $('#network-tenant')[0].value
+  data['name'] = $('#network-name')[0].value
+  data['description'] = $('#network-description')[0].value
+  data['subnet-name'] = $('#subnet-name')[0].value
+  data['subnet-mask'] = $('#subnet-mask')[0].value
+
+  const requestOptions = {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  fetch(base_url +'/networks/create', requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log(response)
+      return response.text();
+    })
+    .then(data => {
+      data = JSON.parse(data)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 });
 </script>
 {% endblock javascripts %}

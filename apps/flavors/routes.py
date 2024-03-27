@@ -73,7 +73,7 @@ def get_recommended_flavors():
                         if not found:
                             potential_flavors.append(
                                 {'flavorid': flavorid, 'name': 'flavor %d' % flavorid,
-                                 'description': 'Flavor  %d' % flavorid,
+                                 'description': 'vcpus:%d ram:%d disk:%d' % (c, m, d),
                                  'vcpus': c, 'ram': m, 'swap': 0, 'is_public': True,
                                  'disk': d, 'already_exists': False, "modified": False})
                         flavorid += 1
